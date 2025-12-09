@@ -1,3 +1,8 @@
 export function ProductDetail() {
-  return <div>hey good morning!</div>;
+  return (
+    <div>
+      <h1> hey good morning! </h1>
+      <h1 class="text-3xl font-bold  underline">Hello world!</h1>
+    </div>
+  );
 }
