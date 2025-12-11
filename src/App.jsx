@@ -1,19 +1,58 @@
-import { Router } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import ViewProduct from "./pages/productdetail";
+import ProductDetail from "./pages/productdetail";
 import ProductList from "./pages/productlist";
 import ProductsDtl from "./pages/productsde";
-import RouterContainer from "./pages/route";
+import Contact from "./pages/contact";
+import AboutUs from "./pages/aboutus";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import LatestProducts from "./components/LatestProducts";
+import Testimonials from "./components/Testimonials";
+import Footer from "./components/Footer";
+
+function AppInner() {
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <LatestProducts />
+              <Testimonials />
+            </>
+          }
+        />
+
+        {/* Product list route (opens when clicking Products in Navbar) */}
+        <Route path="/products" element={<ProductList />} />
+
+        {/* Product detail route */}
+        <Route path="/product/:id" element={<ProductDetail />} />
+
+        {/* Contact route */}
+        <Route path="/contact" element={<Contact />} />
+
+        {/* About Us route */}
+        <Route path="/about" element={<AboutUs />} />
+
+        {/* Example additional route: full products detail mapping */}
+        <Route path="/featured" element={<ProductsDtl />} />
+      </Routes>
+      <Footer />
+    </>
+  );
+}
 
 function App() {
   return (
-    <>
-      {/* <ProductDetail /> */}
-      {/* <ProductPage /> */}
-      {/* <ProductList /> */}
-      {/* <ProductsDtl /> */}
-      <RouterContainer />
-    </>
+    <BrowserRouter>
+      <AppInner />
+    </BrowserRouter>
   );
 }
 
