@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import ProductDetail from "./pages/productdetail";
 import ProductList from "./pages/productlist";
-import ProductsDtl from "./pages/productsde";
+
 import Contact from "./pages/contact";
 import AboutUs from "./pages/aboutus";
 import Navbar from "./components/Navbar";
@@ -30,7 +30,7 @@ function AppInner() {
         <Route path="/about" element={<AboutUs />} />
 
         {/* Example additional route: full products detail mapping */}
-        <Route path="/featured" element={<ProductsDtl />} />
+        {/* <Route path="/featured" element={<ProductsDtl />} /> */}
       </Routes>
       <Footer />
     </>
