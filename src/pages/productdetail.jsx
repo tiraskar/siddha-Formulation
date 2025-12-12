@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
-// Assuming productData is correctly imported from its relative path
 import { productData } from "../productdata.js";
 
 // ----------------------------------------------------------------------
@@ -50,7 +49,7 @@ const getContentData = (product) => [
 // 2. PRODUCT DETAILS COMPONENT (Custom Tabs) - FINAL FIX
 // ----------------------------------------------------------------------
 
-const ProductDetails = ({ product }) => {
+const ProductDescription = ({ product }) => {
   const contentData = getContentData(product);
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
@@ -60,7 +59,7 @@ const ProductDetails = ({ product }) => {
     <div className="my-4 border-t  border-gray-200">
       <div className="w-full mt-4 ">
         {/* Tab / Heading Bar: Removed px-6 md:px-12 to ensure it spans full width of the master container */}
-        <div className="bg-gray-100  flex mx-4 md:mx-4 border-b border-gray-300 overflow-x-auto whitespace-nowrap rounded-t-md">
+        <div className="bg-gray-50 border-b border-gray-200 flex mx-4 md:mx-4  overflow-x-auto whitespace-nowrap rounded-t-md">
           {contentData.map((tab, index) => (
             <button
               key={index}
@@ -86,11 +85,11 @@ const ProductDetails = ({ product }) => {
               {tab.title}
             </button>
           ))}
-          <div className="grow border-b border-gray-300"></div>{" "}
+          <div className="grow "></div>{" "}
         </div>
 
         {/* Content Area: Restored padding p-6 md:p-12 */}
-        <div className="bg-[#fcfbf7] p-6 md:py-12 rounded-b-lg  border border-gray-200 mx-4">
+        <div className="mt-1 bg-[#fcfbf7] p-6 md:py-12 rounded-b-lg   mx-4">
           {contentData[activeTabIndex].content}
         </div>
       </div>
@@ -287,7 +286,7 @@ const ProductDetail = () => {
         </div>
 
         {/* --- BOTTOM SECTION: DYNAMIC PRODUCT DETAILS (Tabs) --- */}
-        <ProductDetails product={product} />
+        <ProductDescription product={product} />
       </div>
       {/* --- END MASTER CONTAINER --- */}
 
