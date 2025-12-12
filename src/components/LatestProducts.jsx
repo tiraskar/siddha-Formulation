@@ -14,13 +14,16 @@ const LatestProducts = () => {
   };
 
   return (
-    <div className="p-6 md:p-10 max-w-6xl mx-auto bg-white">
-      <h1 className="text-3xl font-bold text-green-700 mb-2 text-center">
-        Latest Products
-      </h1>
-      <p className="text-center text-gray-600 mb-8">
-        Discover our newest herbal medicines and wellness products
-      </p>
+    <div className="p-6 md:p-12 max-w-6xl mx-auto bg-gradient-to-b from-white to-green-50">
+      <div className="text-center mb-12">
+        <p className="text-green-600 font-bold text-sm uppercase tracking-widest mb-2">Our Collection</p>
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Latest Products
+        </h1>
+        <p className="text-center text-gray-700 text-lg max-w-2xl mx-auto">
+          Discover our newest herbal medicines and premium wellness products crafted for your health
+        </p>
+      </div>
 
       {/* Grid: responsive columns */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-8">
@@ -32,9 +35,9 @@ const LatestProducts = () => {
           >
             {/* Card Container */}
             <div
-              className="bg-white border border-gray-100 rounded-lg p-3 md:p-4 
-                         hover:shadow-lg transition-shadow duration-300 
-                         flex flex-col items-center text-center h-full min-h-[300px]"
+              className="bg-white border border-gray-100 rounded-2xl p-4 md:p-6 
+                         hover:shadow-xl hover:-translate-y-2 transition-all duration-300 
+                         flex flex-col items-center text-center h-full min-h-[320px]"
             >
               {/* Image Container */}
               <div className="bg-white w-full flex items-center justify-center p-2 mb-2">
@@ -49,20 +52,20 @@ const LatestProducts = () => {
 
               <div className="flex-grow flex flex-col justify-between items-center w-full">
                 {/* Title */}
-                <h2 className="text-base font-bold text-gray-800 line-clamp-2 mb-1">
+                <h2 className="text-base font-bold text-gray-900 line-clamp-2 mb-3">
                   {product.title}
                 </h2>
 
                 {/* Description */}
-                <p className="text-sm text-gray-600 line-clamp-2 mb-3 px-1 flex-grow">
+                <p className="text-sm text-gray-600 line-clamp-2 mb-4 px-1 flex-grow">
                   {getProductDescription(product)}
                 </p>
 
                 {/* Learn More Button */}
                 <button
-                  className="mt-3 text-green-700 border border-green-700 text-sm font-semibold 
-                             px-4 py-1.5 rounded-sm hover:bg-green-700 hover:text-white 
-                             transition duration-200"
+                  className="mt-auto text-green-700 border-2 border-green-700 text-sm font-bold 
+                             px-5 py-2 rounded-lg hover:bg-green-700 hover:text-white 
+                             transition-all duration-200 hover:shadow-lg"
                 >
                   Learn More
                 </button>

@@ -4,39 +4,36 @@ export default function Hero() {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full bg-white py-12 md:py-20">
+      <section className="w-full bg-gradient-to-br from-green-50 to-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6">
           {/* Left Text Section */}
-          <div>
+          <div className="animate-fadeIn">
             <img src="../src/assets/img/siddha.png" alt="Logo" className="h-12 mb-4" />
-            <p className="text-sm text-gray-600 tracking-widest font-semibold mb-2">
-              ADVANCE
+            <p className="text-sm text-green-600 tracking-widest font-bold mb-2 uppercase">
+              Premium Ayurvedic
             </p>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-              NUTRACEUTICAL
-              <br />
-              PRODUCT
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-2">
+              Herbal<br />
+              <span className="text-green-700">Wellness</span>
             </h1>
-            <p className="text-gray-600 mt-4 mb-6 md:max-w-md">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            <p className="text-gray-700 mt-6 mb-8 md:max-w-md text-lg leading-relaxed">
+              Experience the power of ancient Ayurvedic traditions combined with modern science. Premium quality herbal products for your complete wellness journey.
             </p>
-            <button className="bg-green-700 text-white px-6 py-3 rounded-md font-medium hover:bg-green-800 transition flex items-center gap-2">
+            <button className="bg-green-700 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-800 transition-all hover:shadow-lg transform hover:scale-105 flex items-center gap-2 text-lg">
               Shop Now
-              <span className="text-xl">→</span>
+              <span className="text-2xl">→</span>
             </button>
           </div>
 
-     {/* Right Image Section */}
-<div className="relative flex items-center justify-center">
-  <div className="relative">
-    <img
-      src="../src/assets/img/Herbal-Medicine.jpg"
-      alt="Herbal Product"
-      className="w-[400px] md:w-[600px] lg:w-[650px] h-auto drop-shadow-lg relative z-10  rounded-2xl"
-    />
-    {/* Optional decorative circle behind */}
-  </div>
-</div>
+          {/* Right Image Section */}
+          <div className="relative flex items-center justify-center">
+            <div className="absolute w-96 h-96 bg-green-200 rounded-full blur-3xl opacity-40 -z-10"></div>
+            <img
+              src="../src/assets/img/Herbal-Medicine.jpg"
+              alt="Herbal Product"
+              className="w-96 md:w-full h-auto drop-shadow-2xl rounded-3xl hover:scale-105 transition-transform duration-300"
+            />
+          </div>
         </div>
       </section>
 
