@@ -1,5 +1,5 @@
 export const productData = [
-  // --- ID 1: Xtreme Tablet ---
+  // --- ID 1: Xtreme Tablet --- (Existing data)
   {
     id: 1,
     image: "../src/assets/img/xtreme.jpg",
@@ -19,8 +19,7 @@ export const productData = [
       "Non-hormonal and safe sex stimulant for men.",
       "Increves low sperm count, boosts libido, promotes performance.",
     ],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Sexual Wellness / Aphrodisiac",
       Description:
@@ -33,9 +32,8 @@ export const productData = [
         "Take 1 tablet twice a day with warm water or with a cup of milk or as directed by the physician. Follow a 90-day course for maximum benefit.",
       Presentation: "Available in 30 tablets blister pack.",
     },
-  },
+  }, // --- ID 2: Bal Amrit Syrup --- (Existing data)
 
-  // --- ID 2: Bal Amrit Syrup ---
   {
     id: 2,
     image: "../src/assets/img/balamrit.png",
@@ -55,8 +53,7 @@ export const productData = [
       "Nontoxic herbal formulation for indigestion.",
       "Relief from abdominal cramp.",
     ],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Pediatric / Digestive",
       Description:
@@ -69,9 +66,8 @@ export const productData = [
         "Infants (6-12 months): 5 ml (1 teaspoon) twice daily. Children (1-5 years): 10 ml (2 teaspoons) twice daily, or as directed by the pediatrician.",
       Presentation: "Available in 100ml Syrup bottle.",
     },
-  },
+  }, // --- ID 3: Amherb --- (Existing data)
 
-  // --- ID 3: Amherb ---
   {
     id: 3,
     image: "../src/assets/img/amherb.jpg",
@@ -88,8 +84,7 @@ export const productData = [
       "PRODUCT SKU": "SF-AH-200",
     },
     features: ["Anti Diarrhoeal & Amoebic dysentery."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Gastrointestinal / Anti-Diarrhoeal",
       Description:
@@ -101,9 +96,8 @@ export const productData = [
         "Take 10 ml twice a day or as recommended by your physician. Complete the full course.",
       Presentation: "Available in 60ml Drops bottle.",
     },
-  },
+  }, // --- ID 4: Topzyme --- (Existing data)
 
-  // --- ID 4: Topzyme ---
   {
     id: 4,
     image: "../src/assets/img/topzyme.jpg",
@@ -120,8 +114,7 @@ export const productData = [
       "PRODUCT SKU": "SF-TZ-060",
     },
     features: ["Digestive enzymes."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Gastrointestinal / Enzyme Supplement",
       Description:
@@ -134,9 +127,8 @@ export const productData = [
         "Adults: 10 ml (2 teaspoons) after main meals. Children: 5 ml (1 teaspoon) after meals, or as per physician's advice.",
       Presentation: "Available in 100ml Syrup bottle.",
     },
-  },
+  }, // --- ID 5: Raktamrit --- (Existing data)
 
-  // --- ID 5: Raktamrit ---
   {
     id: 5,
     image: "../src/assets/img/raktamrit.jpg",
@@ -153,8 +145,7 @@ export const productData = [
       "PRODUCT SKU": "SF-RA-200",
     },
     features: ["Blood purifier, antibacterial, antifungal, anti-allergic."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Blood Purifier / Dermatological",
       Description:
@@ -167,9 +158,8 @@ export const productData = [
         "Take 10-15 ml twice a day with water or as directed by the physician. Shake well before use.",
       Presentation: "Available in 450ml Syrup bottle.",
     },
-  },
+  }, // --- ID 6: Pylonil --- (Existing data)
 
-  // --- ID 6: Pylonil ---
   {
     id: 6,
     image: "../src/assets/img/pylonil.jpg",
@@ -186,8 +176,7 @@ export const productData = [
       "PRODUCT SKU": "SF-PY-200",
     },
     features: ["Anti-inflammatory and antimicrobial properties."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Anorectal Care",
       Description:
@@ -200,9 +189,8 @@ export const productData = [
         "Take 15 ml twice a day after meals. Consult your physician for personalized treatment.",
       Presentation: "Available in 200ml Syrup bottle.",
     },
-  },
+  }, // --- ID 7: Sidda Race Oil --- (Existing data)
 
-  // --- ID 7: Sidda Race Oil ---
   {
     id: 7,
     image: "../src/assets/img/sidda_race_oil.jpg",
@@ -219,8 +207,7 @@ export const productData = [
       "PRODUCT SKU": "SF-SRO-100",
     },
     features: ["Anti-inflammatory and analgesic action."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Topical / Analgesic",
       Description:
@@ -233,9 +220,8 @@ export const productData = [
         "Apply liberally on the affected part or entire head and massage gently for 30 minutes to one hour before bath. Oils for hair can be applied on head 30 minutes before bath regularly or as directed by the Physician.",
       Presentation: "Available in 100ml Oil bottle.",
     },
-  },
+  }, // --- ID 8: Prasuta Sajjavani --- (Existing data)
 
-  // --- ID 8: Prasuta Sajjavani ---
   {
     id: 8,
     image: "../src/assets/img/prasuta_sajjavani.jpg",
@@ -252,8 +238,7 @@ export const productData = [
       "PRODUCT SKU": "SF-PS-200",
     },
     features: ["Ideal hematinic supplement for pregnancy or lactation."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Women's Health / Hematinic",
       Description:
@@ -265,9 +250,8 @@ export const productData = [
       Dosage: "Take 15 ml twice a day or as suggested by your gynecologist.",
       Presentation: "Available in 450ml Syrup bottle.",
     },
-  },
+  }, // --- ID 9: Birechani --- (Existing data)
 
-  // --- ID 9: Birechani ---
   {
     id: 9,
     image: "../src/assets/img/birechani.jpg",
@@ -284,8 +268,7 @@ export const productData = [
       "PRODUCT SKU": "SF-BR-030",
     },
     features: ["Chronic Constipation."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Gastrointestinal / Laxative",
       Description:
@@ -297,9 +280,8 @@ export const productData = [
         "Take 1-2 capsules at bedtime with warm water, or as directed by your physician.",
       Presentation: "Available in 30 capsules blister pack.",
     },
-  },
+  }, // --- ID 10: Arjuna --- (Existing data)
 
-  // --- ID 10: Arjuna ---
   {
     id: 10,
     image: "../src/assets/img/arjuna.jpg",
@@ -316,8 +298,7 @@ export const productData = [
       "PRODUCT SKU": "SF-AJ-060",
     },
     features: ["Supports heart health and improves blood circulation."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Cardiovascular / Heart Tonic",
       Description:
@@ -329,9 +310,8 @@ export const productData = [
         "Take 1 capsule twice daily after meals, or as prescribed by a health professional.",
       Presentation: "Available in 500mg capsules.",
     },
-  },
+  }, // --- ID 11: Gripe Water --- (Existing data)
 
-  // --- ID 11: Gripe Water ---
   {
     id: 11,
     image: "../src/assets/img/gripe_water.jpg",
@@ -348,8 +328,7 @@ export const productData = [
       "PRODUCT SKU": "SF-GW-120",
     },
     features: ["Anti-spasmodic, carminative, digestive and stomachic."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Pediatric / Colic Relief",
       Description:
@@ -362,9 +341,8 @@ export const productData = [
         "Infants (1-6 months): 5 ml (1 teaspoon) during or after a feed. Children (6 months+): 10 ml (2 teaspoons) during or after a feed. Administer as needed.",
       Presentation: "Available in 130ml Syrup bottle.",
     },
-  },
+  }, // --- ID 12: Kafher PD --- (Existing data)
 
-  // --- ID 12: Kafher PD ---
   {
     id: 12,
     image: "../src/assets/img/kafher_pd.jpg",
@@ -381,8 +359,7 @@ export const productData = [
       "PRODUCT SKU": "SF-KPD-100",
     },
     features: ["Cough expectorant with bronchodilator for children."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Pediatric / Respiratory",
       Description:
@@ -395,9 +372,8 @@ export const productData = [
         "Children (1-3 years): 5 ml three times a day. Children (4-10 years): 10 ml three times a day, or as directed by the pediatrician.",
       Presentation: "Available in 100ml Syrup bottle.",
     },
-  },
+  }, // --- ID 13: Siddhamol Malt --- (Existing data)
 
-  // --- ID 13: Siddhamol Malt ---
   {
     id: 13,
     image: "../src/assets/img/siddhamol_malt.jpg",
@@ -416,8 +392,7 @@ export const productData = [
     features: [
       "Adaptogenic, Antioxidant, Immunity booster, and also a hematinic.",
     ],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "General Tonic / Immunity Booster",
       Description:
@@ -429,9 +404,8 @@ export const productData = [
       Dosage: "Take 1-2 teaspoons twice daily with milk or water.",
       Presentation: "Available in 450gm Malt jar.",
     },
-  },
+  }, // --- ID 14: Apticome --- (Existing data)
 
-  // --- ID 14: Apticome ---
   {
     id: 14,
     image: "../src/assets/img/apticome.jpg",
@@ -448,8 +422,7 @@ export const productData = [
       "PRODUCT SKU": "SF-AP-200",
     },
     features: ["Natural Appetite stimulant."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Appetite Stimulant",
       Description:
@@ -462,9 +435,8 @@ export const productData = [
         "Take 10 ml twice a day, 30 minutes before main meals, or as advised by your physician.",
       Presentation: "Available in 200ml Syrup bottle.",
     },
-  },
+  }, // --- ID 15: Leucoherb --- (Existing data)
 
-  // --- ID 15: Leucoherb ---
   {
     id: 15,
     image: "../src/assets/img/leucoherb.jpg",
@@ -481,8 +453,7 @@ export const productData = [
       "PRODUCT SKU": "SF-LH-200",
     },
     features: ["Uterine Sedative, Anti inflammatory & Menstrual Regulator."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Women's Health / Uterine Tonic",
       Description:
@@ -495,9 +466,8 @@ export const productData = [
         "Take 10-15 ml twice a day for a period recommended by a gynecologist.",
       Presentation: "Available in 450ml Syrup bottle.",
     },
-  },
+  }, // --- ID 16: Livherb --- (Existing data)
 
-  // --- ID 16: Livherb ---
   {
     id: 16,
     image: "../src/assets/img/livherb.jpg",
@@ -514,8 +484,7 @@ export const productData = [
       "PRODUCT SKU": "SF-LV-200",
     },
     features: ["Hepato protective and Rejuvenator."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Hepatoprotective",
       Description:
@@ -527,9 +496,8 @@ export const productData = [
       Dosage: "Take 10 ml twice a day after meals, or as prescribed.",
       Presentation: "Available in 100ml Syrup bottle.",
     },
-  },
+  }, // --- ID 17: Gasherb --- (Existing data)
 
-  // --- ID 17: Gasherb ---
   {
     id: 17,
     image: "../src/assets/img/gasherb.jpg",
@@ -546,8 +514,7 @@ export const productData = [
       "PRODUCT SKU": "SF-GH-200",
     },
     features: ["Hepato protective and Rejuvenator."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Gastrointestinal / Antiflatulent",
       Description:
@@ -559,9 +526,8 @@ export const productData = [
         "Take 10 ml after main meals or when experiencing symptoms of gas/bloating.",
       Presentation: "Available in 200ml Syrup bottle.",
     },
-  },
+  }, // --- ID 18: Crystomin Syrup --- (Existing data)
 
-  // --- ID 18: Crystomin Syrup ---
   {
     id: 18,
     image: "../src/assets/img/crystomin.jpg",
@@ -578,8 +544,7 @@ export const productData = [
       "PRODUCT SKU": "SF-CM-200",
     },
     features: ["Lithotriptic, antibacterial, diuretic and other activities."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Urology / Lithotriptic",
       Description:
@@ -592,9 +557,8 @@ export const productData = [
         "Take 10-15 ml twice a day with water or as directed by a healthcare practitioner.",
       Presentation: "Available in 450ml Syrup bottle.",
     },
-  },
+  }, // --- ID 19: Shakti Herb --- (Existing data)
 
-  // --- ID 19: Shakti Herb ---
   {
     id: 19,
     image: "../src/assets/img/shakti_herb.jpg",
@@ -611,8 +575,7 @@ export const productData = [
       "PRODUCT SKU": "SF-SH-200",
     },
     features: ["Boosts strength and stamina."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "General Tonic / Rejuvenator",
       Description:
@@ -624,9 +587,8 @@ export const productData = [
       Dosage: "Take 10 ml twice a day.",
       Presentation: "Available in 200ml Syrup bottle.",
     },
-  },
+  }, // --- ID 20: Immu Care --- (Existing data)
 
-  // --- ID 20: Immu Care ---
   {
     id: 20,
     image: "../src/assets/img/immu_care.jpg",
@@ -643,8 +605,7 @@ export const productData = [
       "PRODUCT SKU": "SF-IC-200",
     },
     features: ["Immunity Booster."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Immunomodulator",
       Description:
@@ -656,9 +617,8 @@ export const productData = [
         "Take 10 ml twice daily for adults. 5 ml twice daily for children, or as advised.",
       Presentation: "Available in 200ml Syrup bottle.",
     },
-  },
+  }, // --- ID 21: Kafher Syrup --- (Existing data)
 
-  // --- ID 21: Kafher Syrup ---
   {
     id: 21,
     image: "../src/assets/img/kafher_syrup.jpg",
@@ -675,8 +635,7 @@ export const productData = [
       "PRODUCT SKU": "SF-KH-200",
     },
     features: ["Cough expectorant with bronchodilator."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Respiratory / Antitussive",
       Description:
@@ -688,9 +647,8 @@ export const productData = [
         "Take 10 ml three times a day for adults. 5 ml three times a day for children, or as directed by a physician.",
       Presentation: "Available in 200ml Syrup bottle.",
     },
-  },
+  }, // --- ID 22: Tensgaurd Tablet --- (Existing data)
 
-  // --- ID 22: Tensgaurd Tablet ---
   {
     id: 22,
     image: "../src/assets/img/tensgaurd_tablet.jpg",
@@ -707,8 +665,7 @@ export const productData = [
       "PRODUCT SKU": "SF-TG-050",
     },
     features: ["Relieves tension & supports balanced blood pressure."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Cardiovascular / Antihypertensive Support",
       Description:
@@ -720,9 +677,8 @@ export const productData = [
       Dosage: "Take 1 tablet twice a day, or as recommended by your physician.",
       Presentation: "Available in 30x4 tablets blister pack.",
     },
-  },
+  }, // --- ID 23: Bslim Tablet --- (Existing data)
 
-  // --- ID 23: Bslim Tablet ---
   {
     id: 23,
     image: "../src/assets/img/bslim_tablet.jpg",
@@ -739,8 +695,7 @@ export const productData = [
       "PRODUCT SKU": "SF-BS-030",
     },
     features: ["Authentic formula to reduce overweight naturally."],
-    paymentMethods: ["Visa", "MasterCard"],
-    // --- NEW DETAILED TABS DATA ---
+    paymentMethods: ["Visa", "MasterCard"], // --- NEW DETAILED TABS DATA ---
     details: {
       "Therapeutic Category": "Weight Management",
       Description:
@@ -751,6 +706,111 @@ export const productData = [
       Dosage:
         "Take 1 tablet twice a day, preferably before meals, or as directed by a healthcare practitioner.",
       Presentation: "Available in 10x30 tablets blister pack.",
+    },
+  },
+];
+
+export const veterinaryProductData = [
+  // --- VET ID 1: Vet Kafher ---
+  {
+    id: 101,
+    image: "../src/assets/img/vet_kafher.jpg",
+    title: "Vet Kafher",
+    price: 29.0,
+    oldPrice: null,
+    bundleTag: "200ml Syrup",
+    rating: 4,
+    reviewCount: 15,
+    meta: {
+      Availability: "Available",
+      "PRODUCT TYPE": "Ayurvedic Herbal Formulation",
+      "PRODUCT VENDOR": "Siddha Formulation",
+      "PRODUCT SKU": "SF-VK-200",
+    },
+    features: [
+      "Relieves respiratory discomfort.",
+      "Improves lung health in animals.",
+    ],
+    paymentMethods: ["Visa", "MasterCard"], // --- DETAILED TABS DATA ---
+    details: {
+      "Therapeutic Category": "Veterinary / Respiratory Care",
+      Description:
+        "Vet Kafher is an Ayurvedic herbal formulation specifically designed for veterinary use to relieve respiratory discomfort and promote overall lung health in animals, including livestock and pets.",
+      "How It Works":
+        "Acts as a potent expectorant and bronchodilator, helping to clear mucus from the respiratory tract and ease breathing difficulties associated with coughs and congestion.",
+      Indication:
+        "Cough, cold, respiratory infections, and congestion in farm animals and pets.",
+      Dosage:
+        "Cattle/Horses: 50 ml twice daily. Calves/Sheep/Goats: 20 ml twice daily. Pets: 5 ml twice daily. Or as directed by a veterinary physician.",
+      Presentation: "Available in 200ml Syrup bottle.",
+    },
+  }, // --- VET ID 2: Vet Livherb ---
+
+  {
+    id: 102,
+    image: "../src/assets/img/vet_livherb.jpg",
+    title: "Vet Livherb",
+    price: 35.0,
+    oldPrice: null,
+    bundleTag: "500ml Tonic",
+    rating: 5,
+    reviewCount: 22,
+    meta: {
+      Availability: "In Stock",
+      "PRODUCT TYPE": "Herbal Liver Tonic",
+      "PRODUCT VENDOR": "Siddha Formulation",
+      "PRODUCT SKU": "SF-VL-500",
+    },
+    features: [
+      "Supports liver detoxification.",
+      "Improves metabolism and appetite in animals.",
+    ],
+    paymentMethods: ["Visa", "MasterCard"], // --- DETAILED TABS DATA ---
+    details: {
+      "Therapeutic Category": "Veterinary / Hepatoprotective",
+      Description:
+        "Vet Livherb is an effective herbal liver tonic for animals that supports liver detoxification, improves metabolic functions, and enhances appetite, promoting growth and vitality.",
+      "How It Works":
+        "Contains hepatoprotective herbs that regenerate liver cells, protect against toxins, and stimulate bile secretion, which is crucial for fat digestion and nutrient absorption.",
+      Indication:
+        "Liver dysfunction, anorexia (loss of appetite), general debility, and during antibiotic treatment.",
+      Dosage:
+        "Cattle/Horses: 50-60 ml daily. Calves/Sheep/Goats: 15-20 ml daily. Pets: 5-10 ml daily. Administer orally.",
+      Presentation: "Available in 500ml Tonic bottle.",
+    },
+  }, // --- VET ID 3: Vet Siddhamol Malt ---
+
+  {
+    id: 103,
+    image: "../src/assets/img/vet_siddhamol.jpg",
+    title: "Vet Siddhamol Malt",
+    price: 42.0,
+    oldPrice: null,
+    bundleTag: "1Kg Malt",
+    rating: 5,
+    reviewCount: 30,
+    meta: {
+      Availability: "Available",
+      "PRODUCT TYPE": "Nutritional and Revitalizing Malt",
+      "PRODUCT VENDOR": "Siddha Formulation",
+      "PRODUCT SKU": "SF-VSM-1K",
+    },
+    features: [
+      "Supports immunity, strength, and overall health in animals.",
+      "Nutritional and revitalizing supplement.",
+    ],
+    paymentMethods: ["Visa", "MasterCard"], // --- DETAILED TABS DATA ---
+    details: {
+      "Therapeutic Category": "Veterinary / General Tonic",
+      Description:
+        "Vet Siddhamol Malt is a nutritional and revitalizing malt supplement specifically formulated to boost immunity, strength, and overall health in animals, especially during critical phases like recovery or growth.",
+      "How It Works":
+        "Provides a blend of highly bioavailable nutrients and immunomodulators that strengthen the body's defenses, improve muscle mass, and enhance energy levels.",
+      Indication:
+        "General weakness, convalescence, nutritional deficiency, and poor immune response.",
+      Dosage:
+        "Large Animals: 100g daily. Small Animals: 10g-20g daily, mixed with feed.",
+      Presentation: "Available in 1Kg Malt jar.",
     },
   },
 ];

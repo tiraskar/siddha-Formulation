@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
-import { productData } from "../productdata.js";
-
+import { productData, veterinaryProductData } from "../productdata.js";
+// Merge all products into a single searchable array
+const allProducts = [...productData, ...veterinaryProductData];
 // ----------------------------------------------------------------------
 // 1. CONTENT DATA DEFINITION (Unchanged)
 // ----------------------------------------------------------------------
@@ -104,11 +105,13 @@ const ProductDescription = ({ product }) => {
 const RelatedProductCard = ({ product }) => (
   <Link
     to={`/product/${product.id}`}
-    // className="w-full border border-gray-200 rounded-lg p-3 flex flex-col items-center text-center hover:shadow-lg transition duration-300"
-
-    className="bg-green-50 border border-gray-100 rounded-lg p-3 md:p-4 
-                         hover:shadow-2xl  transition-shadow duration-300 
-                         flex flex-col items-center text-center h-full min-h-[300px]"
+    // className="w-full border border-gray-200 bg-[#fcfbf7] rounded-lg p-3 flex flex-col items-center text-center hover:shadow-lg transition duration-300"
+    className="bg-[#fcfbf7] border border-gray-100 rounded-lg p-3 md:p-4
+                         hover:shadow-2xl hover:bg-green-50 transition-shadow duration-300
+                         flex flex-col items-center text-center min-h-[300px]"
+    // className="bg-green-50 border border-gray-100 rounded-lg p-3 md:p-4
+    //                      hover:shadow-2xl  transition-shadow duration-300
+    //                      flex flex-col items-center text-center h-full min-h-[300px]"
   >
     <div className="relative w-full h-32 mb-4 flex items-center justify-center">
       <img
@@ -123,11 +126,11 @@ const RelatedProductCard = ({ product }) => (
       )}
     </div>
 
-    <h4 className="text-sm font-semibold text-gray-800 h-10 overflow-hidden leading-tight mb-1 line-clamp-2">
+    <h4 className="text-sm font-semibold text-gray-800 h-8 overflow-hidden leading-tight  line-clamp-2">
       {product.title}
     </h4>
 
-    <p className="text-xs text-gray-500 mb-2 h-8 overflow-hidden line-clamp-2">
+    <p className="text-xs text-gray-500  h-8 overflow-hidden line-clamp-2">
       {product.description ||
         product.shortDescription ||
         product.features[0] ||
@@ -145,7 +148,12 @@ const RelatedProductCard = ({ product }) => (
       )}
     </div>
 
-    <div className="w-full text-sm bg-white border border-[#6e9e54] text-[#6e9e54] py-2 px-4 rounded-md hover:bg-[#eaf4e6] transition font-semibold mt-auto">
+    {/* <div className="w-full text-sm bg-white border border-[#6e9e54] text-[#6e9e54] py-2 px-4 rounded-md hover:bg-[#eaf4e6] transition font-semibold mt-auto"> */}
+    <div
+      className="text-green-700 border border-green-700 text-sm font-semibold
+                             px-4 py-1.5 rounded-sm hover:bg-green-700 hover:text-white
+                             transition"
+    >
       Learn More
     </div>
   </Link>
@@ -156,23 +164,33 @@ const RelatedProductCard = ({ product }) => (
 // ----------------------------------------------------------------------
 
 const RelatedProducts = ({ currentProductId }) => {
-  const relatedItems = productData
-    .filter((item) => item.id !== currentProductId)
-    .slice(0, 8);
+  // Check which list the current product belongs to
+  const isVeterinaryProduct = veterinaryProductData.some(
+    (item) => item.id === currentProductId
+  );
 
-  if (!relatedItems || relatedItems.length === 0) {
-    return null;
-  }
+  // Select the correct source list
+  const sourceList = isVeterinaryProduct ? veterinaryProductData : productData;
+
+  // Filter related products from the same list
+  const relatedItems = sourceList
+    .filter((item) => item.id !== currentProductId)
+    .slice(0, 8); // limit to 8
+
+  if (relatedItems.length === 0) return null;
 
   return (
-    <div className="mt-12 pt-6 border-t border-gray-200 w-full">
+    <div className="mt-12 pt-6 border-t  border-gray-200 w-full">
       <div className="max-w-[1100px] mx-auto px-6 md:px-0">
         <h2 className="text-2xl font-bold text-gray-900 mb-1 uppercase tracking-wider text-center">
           RELATED PRODUCTS
         </h2>
         <p className="text-gray-500 text-sm mb-8 text-center">
-          The herbal choice is a healthy choice.
+          {isVeterinaryProduct
+            ? "More herbal solutions for animal care."
+            : "The herbal choice is a healthy choice."}
         </p>
+
         <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6">
           {relatedItems.map((product) => (
             <RelatedProductCard key={product.id} product={product} />
@@ -190,7 +208,9 @@ const RelatedProducts = ({ currentProductId }) => {
 const ProductDetail = () => {
   const { id } = useParams();
   const productId = parseInt(id);
-  const product = productData.find((p) => p.id === productId);
+
+  // 🔥 Search across the merged array (allProducts)
+  const product = allProducts.find((p) => p.id === productId);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -200,6 +220,7 @@ const ProductDetail = () => {
     return <Navigate to="/" />;
   }
 
+  // ... (Rest of the ProductDetail JSX remains the same) ...
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-4 md:p-6 font-sans relative pb-32">
       {/* Back Button */}
@@ -237,21 +258,21 @@ const ProductDetail = () => {
                 {[...Array(product.rating)].map((_, i) => (
                   <span key={i}>★</span>
                 ))}
-                {[...Array(5 - product.rating)].map((_, i) => (
+                {[...Array(5 - (product.rating || 0))].map((_, i) => (
                   <span key={i} className="text-gray-300">
                     ★
                   </span>
                 ))}
               </div>
               <span className="text-sm text-gray-500">
-                ({product.reviewCount} Reviews)
+                ({product.reviewCount || 0} Reviews)
               </span>
             </div>
 
             {/* Price */}
             <div className="flex items-center gap-4 mb-8">
               <span className="text-4xl font-bold text-gray-900">
-                ${product.price.toFixed(2)}
+                ${(product.price || 0).toFixed(2)}
               </span>
               {product.oldPrice && (
                 <span className="text-xl text-gray-400 line-through decoration-1">
@@ -267,7 +288,7 @@ const ProductDetail = () => {
 
             {/* Meta Data */}
             <div className="grid grid-cols-[140px_1fr] gap-y-3 text-sm mb-8">
-              {Object.entries(product.meta).map(([key, value]) => (
+              {Object.entries(product.meta || {}).map(([key, value]) => (
                 <React.Fragment key={key}>
                   <span className="font-bold text-gray-700 text-xs tracking-wide uppercase">
                     {key}:
@@ -282,7 +303,7 @@ const ProductDetail = () => {
               Key Benefits
             </h3>
             <ul className="space-y-2 text-sm text-gray-700 mb-8 list-disc pl-4 marker:text-[#6e9e54]">
-              {product.features.map((feature, index) => (
+              {product.features?.map((feature, index) => (
                 <li key={index}>{feature}</li>
               ))}
             </ul>
