@@ -26,7 +26,7 @@ export default function Hero() {
               modern science. Premium quality herbal products for your complete
               wellness journey.
             </p>
-            <button className="bg-green-700 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-800 transition-all hover:shadow-lg transform hover:scale-105 flex items-center gap-2 text-lg">
+            <button className="bg-green-700 text-white px-6 py-2 rounded-lg font-bold hover:bg-green-800 transition-all hover:shadow-lg transform hover:scale-105 flex items-center gap-2 text-lg">
               Shop Now
               <span className="text-2xl">→</span>
             </button>
