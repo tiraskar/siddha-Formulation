@@ -264,19 +264,19 @@ const XtremeTabletPage = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src="/assets/img/xtreme.jpg"
-                  alt="Xtreme Tablet"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <p className="text-sm opacity-90">Xtreme Tablet</p>
-                  <p className="text-xl font-bold">100% Natural & Safe Ayurvedic Formula</p>
-                </div>
-              </div>
-              
+       <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+  <img
+    src="/assets/img/xtreme.jpg"
+    alt="Xtreme Tablet"
+    className="w-full h-auto max-h-[600px] object-contain"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent"></div>
+  <div className="absolute bottom-6 left-6 text-white">
+    <p className="text-sm opacity-90">Xtreme Tablet</p>
+    <p className="text-xl font-bold">100% Natural & Safe Ayurvedic Formula</p>
+  </div>
+</div>
+
               {/* Floating stats */}
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
                 <div className="text-center">

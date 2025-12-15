@@ -22,11 +22,11 @@ export const productData = [
     paymentMethods: ["Visa", "MasterCard"],
     // --- NEW DETAILED TABS DATA ---
     details: {
-      "Therapeutic Category": "Sexual Wellness / Aphrodisiac",
+      "Therapeutic Category": "Non-hormonal and safe sex stimulant for men",
       Description:
-        "Xtreme Tablet is a powerful, non-hormonal sex stimulant designed for men seeking to enhance performance and vitality. This formulation is crafted to naturally support male reproductive health. It helps relieve stress and promotes deep relaxation.",
+      "It improves sperm count, hormonal level, corrects morphology of sperms, improves motility of sperms, prevents oxidative stress and therefore improves male fertility.",
       "How It Works":
-        "The herbs work synergistically to improve circulation to the reproductive organs, stimulate testosterone production naturally, and boost overall energy and libido. It functions as an adaptogen to reduce performance-related stress.",
+        "Exhibits spermatogenic activity and increases serum hormone levels. Improves sperm motility and total sperm count in infertile males. Enhances semen quality by combating oxidative stress. Improves blood circulation to genital organs.",
       Indication:
         "Low sperm count, loss of libido, erectile dysfunction, and poor sexual performance.",
       Dosage:
