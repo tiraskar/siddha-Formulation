@@ -1,38 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { productData } from "../productdata.js"; // Ensure path is correct
+import {
+  productData,
+  veterinaryProductData,
+  classicalProductData,
+} from "../productdata.js";
 
-const ProductList = () => {
-  // Function to safely extract the first feature as a description
-  const getProductDescription = (product) => {
-    // We use the first item in the 'features' array as the description, if it exists.
-    return product.features && product.features.length > 0
-      ? product.features[0]
-      : "Details not available.";
-  };
+const ProductSection = ({ title, products }) => {
+  const getProductDescription = (product) =>
+    product.features?.[0] || "Details not available.";
 
   return (
-    <div className="p-6 md:p-10 max-w-6xl mx-auto min-h-screen bg-white">
-      <h1 className="text-3xl font-bold text-green-700 mb-8 text-center">
-        Patent Herbal Medicines
+    <>
+      <h1 className="text-3xl border-b pb-5 font-bold text-green-700 mb-8 text-center">
+        {title}
       </h1>
 
-      {/* Grid: 4 columns on large screens to match the reference images */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
-        {productData.map((product) => (
+      <div className="flex flex-wrap justify-center gap-6">
+        {products.map((product) => (
           <Link
             key={product.id}
             to={`/product/${product.id}`}
-            className="block h-full group"
+            className="
+              basis-full
+              sm:basis-[calc(50%-1.5rem)]
+              md:basis-[calc(33.333%-1.5rem)]
+              lg:basis-[calc(25%-1.5rem)]
+            "
           >
-            {/* Card Container: Minimal border, clean background, fixed min-height for uniformity */}
             <div
-              className="bg-green-50 border border-gray-100 rounded-lg p-3 md:p-4 
-                         hover:shadow-2xl  transition-shadow duration-300 
-                         flex flex-col items-center text-center h-full min-h-[300px]"
+              className="bg-[#fcfbf7] border border-gray-100 rounded-lg p-3 md:p-4
+                         hover:shadow-2xl hover:bg-green-50 transition-shadow duration-300
+                         flex flex-col items-center text-center min-h-[300px]"
             >
-              {/* Image Container: Square aspect ratio, white/light background */}
-              <div className="bg-green-50 w-full flex items-center justify-center p-2 mb-2">
+              <div className="w-full flex justify-center mb-2">
                 <div className="w-2/3 aspect-square flex items-center justify-center">
                   <img
                     src={product.image}
@@ -42,22 +43,19 @@ const ProductList = () => {
                 </div>
               </div>
 
-              <div className=" flex flex-col grow justify-between items-center w-full">
-                {/* Title */}
-                <h2 className="text-base font-bold text-gray-800 line-clamp-2 mb-1">
+              <div className="flex flex-col grow justify-between items-center">
+                <h2 className="text-base font-bold text-gray-800 line-clamp-2">
                   {product.title}
                 </h2>
 
-                {/* Description (from first feature) */}
-                <p className="text-sm text-gray-600 line-clamp-2 mb-3 px-1 grow">
+                <p className="text-sm text-gray-600 line-clamp-2 my-2">
                   {getProductDescription(product)}
                 </p>
 
-                {/* Learn More Button (Green Border style from reference) */}
                 <button
-                  className="mt-3 text-green-700 border border-green-700 text-sm font-semibold 
-                             px-4 py-1.5 rounded-sm hover:bg-green-700 hover:text-white 
-                             transition duration-200"
+                  className="text-green-700 border border-green-700 text-sm font-semibold
+                             px-4 py-1.5 rounded-sm hover:bg-green-700 hover:text-white
+                             transition"
                 >
                   Learn More
                 </button>
@@ -65,6 +63,28 @@ const ProductList = () => {
             </div>
           </Link>
         ))}
+      </div>
+    </>
+  );
+};
+
+const ProductList = () => {
+  return (
+    <div className="p-6 md:p-10 max-w-6xl mx-auto min-h-screen bg-white">
+      <ProductSection title="Patent Herbal Medicines" products={productData} />
+
+      <div className="mt-12 border-t-2 border-gray-100 pt-5">
+        <ProductSection
+          title="Classical Herbal Medicines"
+          products={classicalProductData}
+        />
+      </div>
+
+      <div className="mt-12 border-t-2 border-gray-100 pt-5">
+        <ProductSection
+          title="Animal Herbal Medicines"
+          products={veterinaryProductData}
+        />
       </div>
     </div>
   );
