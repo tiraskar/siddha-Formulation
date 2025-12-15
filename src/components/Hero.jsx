@@ -1,76 +1,101 @@
 /* SiddhaHero.jsx - Hero + Bottom Section */
 
+import { useNavigate } from "react-router-dom";
+
 export default function Hero() {
+  const navigate = useNavigate();
+
+  const openDiscover = () => {
+    navigate('/products#patent');
+  };
+
+  const openProducts = () => {
+    navigate('/products');
+  };
+
   return (
     <>
-      {/* Hero Section */}
-      <section className="w-full bg-linear-to-br from-green-50 to-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6">
-          {/* Left Text Section */}
-          <div className="animate-fadeIn">
-          
-            <p className="text-sm text-green-600 tracking-widest font-bold mb-2 uppercase">
-              Premium Ayurvedic
-            </p>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-2">
-              Herbal
-              <br />
-              <span className="text-green-700">Wellness</span>
-            </h1>
-            <p className="text-gray-700 mt-6 mb-8 md:max-w-md text-lg leading-relaxed">
-              Experience the power of ancient Ayurvedic traditions combined with
-              modern science. Premium quality herbal products for your complete
-              wellness journey.
-            </p>
-            <button className="bg-green-700 text-white px-6 py-2 rounded-lg font-bold hover:bg-green-800 transition-all hover:shadow-lg transform hover:scale-105 flex items-center gap-2 text-lg">
-              Shop Now
-              <span className="text-2xl">→</span>
-            </button>
-          </div>
+   {/* Hero Section */}
+<section className="w-full bg-gradient-to-br from-green-50 to-white py-16 md:py-24">
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6">
 
-          {/* Right Image Section */}
-          <div className="relative flex items-center justify-center">
-            <div className="absolute w-96 h-96 bg-green-200 rounded-full blur-3xl opacity-40 -z-10"></div>
-            <img
-              src="/assets/img/Herbal-Medicine.jpg"
-              alt="Herbal Product"
-              className="w-96 md:w-full h-auto drop-shadow-2xl rounded-3xl hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        </div>
-      </section>
+    {/* Left Text Section */}
+    <div className="animate-fadeIn">
+      <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-4">
+        Siddha
+        <br />
+        <span className="text-green-700">
+          Foundation Pvt. Ltd
+        </span>
+      </h1>
 
-      {/* Bottom Ayurvedic Info Section */}
-      <section className="relative w-full mt-0">
-        {/* Background Image */}
-        <div
-          className="w-full h-[360px] md:h-[420px] bg-cover bg-center flex items-center justify-center text-center px-6"
-          style={{
-            backgroundImage: "url('/assets/img/Herbal-Medicine.jpg')",
-          }}
-        >
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/40"></div>
+      <p className="text-green-700 mt-4 mb-4 md:max-w-md text-lg font-semibold">
+        Revolutionizing Herbal Healthcare in Nepal:
+      </p>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-3xl mx-auto text-white">
-            <h2 className="text-xl md:text-2xl font-bold mb-4 leading-snug">
-              Buy Ayurvedic Medicine & Products Online from India's
-              <br /> Largest Ayurvedic Shopping Store
-            </h2>
+      <p className="text-gray-700 mb-8 md:max-w-md text-lg leading-relaxed">
+        Pioneering the future of natural medicine with cutting-edge research,
+        traditional wisdom, and sustainable practices.
+      </p>
 
-            <p className="text-[13px] md:text-sm leading-relaxed">
-              AyurKart, the online ayurvedic store sells all kinds of ayurvedic
-              medicine and ayurvedic products online from India's top most
-              ayurvedic brands like Kottakkal Arya VaidyaSala, Vaidyaratnam,
-              AVP, Kerala Ayurveda, Himalaya, Dabur, Zandu Ayurveda & Alarsin
-              etc., our aims to bring the world of authentic ayurvedic herbs and
-              ayurvedic medicines to your doorstep within the shortest delivery
-              time possible.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Buttons */}
+      <div className="flex flex-wrap gap-4">
+        <button onClick={openDiscover} className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold
+          hover:bg-green-800 transition-all hover:shadow-lg transform hover:scale-105
+          flex items-center gap-2 text-lg">
+          Our Products
+          <span className="text-2xl">→</span>
+        </button>
+
+      
+      </div>
+    </div>
+
+    {/* Right Image Section */}
+    <div className="relative flex items-center justify-center">
+      <div className="absolute w-80 h-80 md:w-96 md:h-96 bg-green-200 rounded-full blur-3xl opacity-40 -z-10"></div>
+      <img
+        src="/assets/img/Herbal-Medicine.jpg"
+        alt="Herbal Product"
+        className="w-80 md:w-full h-auto drop-shadow-2xl rounded-3xl
+          hover:scale-105 transition-transform duration-300"
+      />
+    </div>
+
+  </div>
+</section>
+
+{/* Bottom Ayurvedic Info Section */}
+<section className="relative w-full mt-0">
+  <div
+    className="relative w-full h-[450px] md:h-[520px] bg-cover bg-center flex items-center justify-center px-6"
+    style={{
+      backgroundImage: "url('/assets/img/Herbal-Medicine.jpg')",
+    }}
+  >
+    {/* Dark Overlay */}
+    <div className="absolute inset-0 bg-black/60"></div>
+
+    {/* Content */}
+    <div className="relative z-10 max-w-5xl mx-auto text-center text-white px-4">
+      <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+        Buy Ayurvedic Medicine & Products Online from India's
+        <br />
+        Largest Ayurvedic Shopping Store
+      </h2>
+
+      <p className="text-base md:text-lg leading-relaxed text-gray-100">
+        AyurKart, the online ayurvedic store sells all kinds of ayurvedic
+        medicine and ayurvedic products online from India's top brands like
+        Kottakkal Arya VaidyaSala, Vaidyaratnam, AVP, Kerala Ayurveda, Himalaya,
+        Dabur, Zandu Ayurveda & Alarsin etc. We aim to bring authentic
+        ayurvedic herbs and medicines to your doorstep with the fastest delivery
+        possible.
+      </p>
+    </div>
+  </div>
+</section>
+
     </>
   );
 }

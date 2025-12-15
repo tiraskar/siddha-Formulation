@@ -5,16 +5,17 @@ import {
   productData,
   veterinaryProductData,
 } from "../productdata.js";
+
 // Merge all products into a single searchable array
 const allProducts = [
   ...productData,
   ...veterinaryProductData,
   ...classicalProductData,
 ];
-// ----------------------------------------------------------------------
-// 1. CONTENT DATA DEFINITION (Unchanged)
-// ----------------------------------------------------------------------
 
+// ----------------------------------------------------------------------
+// 1. CONTENT DATA DEFINITION
+// ----------------------------------------------------------------------
 const getContentData = (product) => [
   {
     title: "Therapeutic Category",
@@ -55,9 +56,8 @@ const getContentData = (product) => [
 ];
 
 // ----------------------------------------------------------------------
-// 2. PRODUCT DETAILS COMPONENT (Custom Tabs) - FINAL FIX
+// 2. PRODUCT DESCRIPTION TABS COMPONENT
 // ----------------------------------------------------------------------
-
 const ProductDescription = ({ product }) => {
   const contentData = getContentData(product);
   const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -65,23 +65,22 @@ const ProductDescription = ({ product }) => {
   if (contentData.length === 0) return null;
 
   return (
-    <div className="my-4 border-t  border-gray-200">
-      <div className="w-full mt-4 ">
-        {/* Tab / Heading Bar: Removed px-6 md:px-12 to ensure it spans full width of the master container */}
-        <div className="bg-gray-50 border-b border-gray-200 flex mx-4 md:mx-4  overflow-x-auto whitespace-nowrap rounded-t-md">
+    <div className="my-4 border-t border-gray-200">
+      <div className="w-full mt-4">
+        {/* Tabs */}
+        <div className="bg-gray-50 border-b border-gray-200 flex overflow-x-auto whitespace-nowrap rounded-t-md mx-4 md:mx-4">
           {contentData.map((tab, index) => (
             <button
               key={index}
               onClick={() => setActiveTabIndex(index)}
               className={`
-              py-2 px-4 font-semibold text-sm cursor-pointer transition duration-150 ease-in-out
-              ${
-                index === activeTabIndex
+                py-2 px-4 font-semibold text-sm cursor-pointer transition duration-150 ease-in-out
+                ${index === activeTabIndex
                   ? "bg-[#6e9e54] text-white"
                   : "text-gray-600 hover:text-gray-900 bg-gray-50 hover:bg-gray-100"
-              }
-              ${index === activeTabIndex && index === 0 ? "rounded-tl-md" : ""}
-            `}
+                }
+                ${index === activeTabIndex && index === 0 ? "rounded-tl-md" : ""}
+              `}
               style={
                 index === activeTabIndex
                   ? {
@@ -94,11 +93,11 @@ const ProductDescription = ({ product }) => {
               {tab.title}
             </button>
           ))}
-          <div className="grow "></div>{" "}
+          <div className="grow"></div>
         </div>
 
-        {/* Content Area: Restored padding p-6 md:p-12 */}
-        <div className="mt-1 bg-[#fcfbf7] p-6 md:py-12 rounded-b-lg   mx-4">
+        {/* Content */}
+        <div className="mt-1 bg-[#fcfbf7] p-6 md:py-12 rounded-b-lg mx-4">
           {contentData[activeTabIndex].content}
         </div>
       </div>
@@ -107,109 +106,80 @@ const ProductDescription = ({ product }) => {
 };
 
 // ----------------------------------------------------------------------
-// 3. PRODUCT CARD COMPONENT (Unchanged)
+// 3. RELATED PRODUCT CARD
 // ----------------------------------------------------------------------
-
 const RelatedProductCard = ({ product }) => (
-  <Link
-    to={`/product/${product.id}`}
-    // className="w-full border border-gray-200 bg-[#fcfbf7] rounded-lg p-3 flex flex-col items-center text-center hover:shadow-lg transition duration-300"
-    className="bg-[#fcfbf7] border border-gray-100 rounded-lg p-3 md:p-4
-                         hover:shadow-2xl hover:bg-green-50 transition-shadow duration-300
-                         flex flex-col items-center text-center min-h-[300px]"
-    // className="bg-green-50 border border-gray-100 rounded-lg p-3 md:p-4
-    //                      hover:shadow-2xl  transition-shadow duration-300
-    //                      flex flex-col items-center text-center h-full min-h-[300px]"
-  >
-    <div className="relative w-full h-32 mb-4 flex items-center justify-center">
-      <img
-        src={product.image}
-        alt={product.title}
-        className="max-h-full max-w-full object-contain"
-      />
-      {product.oldPrice && (
-        <span className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-bl">
-          Sale
-        </span>
-      )}
-    </div>
-
-    <h4 className="text-sm font-semibold text-gray-800 h-8 overflow-hidden leading-tight  line-clamp-2">
-      {product.title}
-    </h4>
-
-    <p className="text-xs text-gray-500  h-8 overflow-hidden line-clamp-2">
-      {product.description ||
-        product.shortDescription ||
-        product.features[0] ||
-        "Short description coming soon."}
-    </p>
-
-    <div className="flex justify-center items-baseline my-1 mb-3 grow">
-      <span className="text-lg font-bold text-gray-900 mr-2">
-        ${product.price.toFixed(2)}
-      </span>
-      {product.oldPrice && (
-        <span className="text-xs text-gray-400 line-through">
-          ${product.oldPrice.toFixed(2)}
-        </span>
-      )}
-    </div>
-
-    {/* <div className="w-full text-sm bg-white border border-[#6e9e54] text-[#6e9e54] py-2 px-4 rounded-md hover:bg-[#eaf4e6] transition font-semibold mt-auto"> */}
+  <Link to={`/product/${product.id}`} className="block relative group">
     <div
-      className="text-green-700 border border-green-700 text-sm font-semibold
-                             px-4 py-1.5 rounded-sm hover:bg-green-700 hover:text-white
-                             transition"
+      className="bg-white border border-gray-100 rounded-lg p-3 md:p-4
+                  transition-shadow duration-300
+                 flex flex-col items-center text-center min-h-[300px] relative overflow-hidden"
     >
-      Learn More
+      {/* Black overlay on hover */}
+      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition-opacity duration-300 rounded-lg pointer-events-none"></div>
+
+      {/* Product Image */}
+      <div className="w-full h-32 mb-4 flex items-center justify-center rounded-md overflow-hidden  relative z-10">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="max-h-full max-w-full object-contain"
+        />
+      </div>
+
+      {/* Title */}
+      <h4 className="text-sm md:text-base font-semibold text-gray-800 h-10 overflow-hidden leading-tight line-clamp-2 relative z-10">
+        {product.title}
+      </h4>
+
+      {/* Short Description */}
+      <p className="text-xs md:text-sm text-gray-600 h-10 overflow-hidden line-clamp-2 my-3 relative z-10">
+        {product.description || product.shortDescription || product.features?.[0] || "Short description coming soon."}
+      </p>
+
+      {/* Button */}
+      <button
+        className="w-full mt-auto px-4 py-2 rounded-md border-2 border-green-700
+                   text-green-700 font-semibold
+                   hover:bg-green-700 hover:text-white hover:shadow-md
+                   transition-all duration-300 relative z-10"
+        type="button"
+      >
+        Learn More →
+      </button>
     </div>
   </Link>
 );
 
-// ----------------------------------------------------------------------
-// 4. RELATED PRODUCTS SECTION (Updated)
-// ----------------------------------------------------------------------
 
+// ----------------------------------------------------------------------
+// 4. RELATED PRODUCTS SECTION
+// ----------------------------------------------------------------------
 const RelatedProducts = ({ currentProductId }) => {
-  // 1. Determine which list the current product belongs to
-  let sourceList = productData; // Default to human/Siddha products
+  let sourceList = productData;
   let categoryTitle = "The herbal choice is a healthy choice.";
 
-  const isVeterinaryProduct = veterinaryProductData.some(
-    (item) => item.id === currentProductId
-  );
-  const isClassicalProduct = classicalProductData.some(
-    (item) => item.id === currentProductId
-  );
-
-  if (isVeterinaryProduct) {
+  if (veterinaryProductData.some((item) => item.id === currentProductId)) {
     sourceList = veterinaryProductData;
     categoryTitle = "More herbal solutions for animal care.";
-  } else if (isClassicalProduct) {
+  } else if (classicalProductData.some((item) => item.id === currentProductId)) {
     sourceList = classicalProductData;
     categoryTitle = "Discover more from our Classical Ayurvedic range.";
-  } else {
-    sourceList = productData;
-    categoryTitle = "The herbal choice is a healthy choice.";
   }
 
-  // 2. Filter related products from the determined source list
   const relatedItems = sourceList
     .filter((item) => item.id !== currentProductId)
-    .slice(0, 8); // limit to 8
+    .slice(0, 8);
 
   if (relatedItems.length === 0) return null;
 
   return (
-    <div className="mt-12 pt-6 border-t  border-gray-200 w-full">
+    <div className="mt-12 pt-6 border-t border-gray-200 w-full">
       <div className="max-w-[1100px] mx-auto px-6 md:px-0">
         <h2 className="text-2xl font-bold text-gray-900 mb-1 uppercase tracking-wider text-center">
           RELATED PRODUCTS
         </h2>
-        <p className="text-gray-500 text-sm mb-8 text-center">
-          {categoryTitle}
-        </p>
+        <p className="text-gray-500 text-sm mb-8 text-center">{categoryTitle}</p>
 
         <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6">
           {relatedItems.map((product) => (
@@ -222,25 +192,20 @@ const RelatedProducts = ({ currentProductId }) => {
 };
 
 // ----------------------------------------------------------------------
-// 5. MAIN ProductDetail COMPONENT - ITEMS REMOVED
+// 5. MAIN PRODUCT DETAIL COMPONENT
 // ----------------------------------------------------------------------
-
 const ProductDetail = () => {
   const { id } = useParams();
   const productId = parseInt(id);
 
-  // 🔥 Search across the merged array (allProducts)
   const product = allProducts.find((p) => p.id === productId);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [productId]);
 
-  if (!product) {
-    return <Navigate to="/" />;
-  }
+  if (!product) return <Navigate to="/" />;
 
-  // ... (Rest of the ProductDetail JSX remains the same) ...
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-4 md:p-6 font-sans relative pb-32">
       {/* Back Button */}
@@ -251,11 +216,10 @@ const ProductDetail = () => {
         ← Back to all products
       </Link>
 
-      {/* --- MASTER CONTAINER FOR PRODUCT DETAILS + TABS (Structural classes) --- */}
+      {/* MASTER CONTAINER */}
       <div className="bg-white rounded-lg shadow-xl max-w-[1100px] w-full mt-0 md:mt-4 overflow-hidden">
-        {/* --- TOP SECTION: MAIN PRODUCT INFO GRID --- */}
         <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Left: Image Container */}
+          {/* Left: Image */}
           <div className="bg-[#fcfbf7] p-8 flex items-center justify-center relative overflow-hidden mx-4 mt-4">
             <div className="w-full aspect-square flex items-center justify-center">
               <img
@@ -271,71 +235,14 @@ const ProductDetail = () => {
             <h1 className="text-3xl font-semibold text-gray-900 leading-tight mb-2 line-clamp-2 md:line-clamp-none">
               {product.title}
             </h1>
-
-            {/* Rating */}
-            <div className="flex items-center mb-6">
-              <div className="flex text-yellow-400 text-lg mr-3">
-                {[...Array(product.rating)].map((_, i) => (
-                  <span key={i}>★</span>
-                ))}
-                {[...Array(5 - (product.rating || 0))].map((_, i) => (
-                  <span key={i} className="text-gray-300">
-                    ★
-                  </span>
-                ))}
-              </div>
-              <span className="text-sm text-gray-500">
-                ({product.reviewCount || 0} Reviews)
-              </span>
-            </div>
-
-            {/* Price */}
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-4xl font-bold text-gray-900">
-                ${(product.price || 0).toFixed(2)}
-              </span>
-              {product.oldPrice && (
-                <span className="text-xl text-gray-400 line-through decoration-1">
-                  ${product.oldPrice.toFixed(2)}
-                </span>
-              )}
-              {product.bundleTag && (
-                <span className="bg-[#6e9e54] text-white text-sm font-semibold px-3 py-1 rounded-sm">
-                  {product.bundleTag}
-                </span>
-              )}
-            </div>
-
-            {/* Meta Data */}
-            <div className="grid grid-cols-[140px_1fr] gap-y-3 text-sm mb-8">
-              {Object.entries(product.meta || {}).map(([key, value]) => (
-                <React.Fragment key={key}>
-                  <span className="font-bold text-gray-700 text-xs tracking-wide uppercase">
-                    {key}:
-                  </span>
-                  <span className="text-gray-600">{value}</span>
-                </React.Fragment>
-              ))}
-            </div>
-
-            {/* Key Benefits */}
-            <h3 className="text-md font-bold text-gray-800 uppercase tracking-wider mb-2 pt-4 mt-4 border-t border-gray-100">
-              Key Benefits
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-700 mb-8 list-disc pl-4 marker:text-[#6e9e54]">
-              {product.features?.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
           </div>
         </div>
 
-        {/* --- BOTTOM SECTION: DYNAMIC PRODUCT DETAILS (Tabs) --- */}
+        {/* Product Tabs */}
         <ProductDescription product={product} />
       </div>
-      {/* --- END MASTER CONTAINER --- */}
 
-      {/* RELATED PRODUCTS SECTION */}
+      {/* RELATED PRODUCTS */}
       <RelatedProducts currentProductId={productId} />
     </div>
   );

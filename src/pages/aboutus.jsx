@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ScrollUpButton from "../common/ScrollUpButton";
 
 // Define the slides data for the carousel
 const slides = [
@@ -240,6 +241,7 @@ export default function AboutUs() {
           </Link>
         </section>
       </div>
+      <ScrollUpButton/>
     </div>
   );
 }
