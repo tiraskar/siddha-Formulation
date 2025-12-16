@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Leaf, Pill, PawPrint, Filter } from "lucide-react";
+import React, { useState, useMemo } from "react";
 import {
   productData,
   veterinaryProductData,
   classicalProductData,
 } from "../productdata.js";
+import { Leaf, Pill, PawPrint, Filter, ChevronDown, X } from "lucide-react";
 import ScrollUpButton from "../common/ScrollUpButton.jsx";
 
-// Single Product Section Component
+// ---------------- PRODUCT SECTION ----------------
 const ProductSection = ({ id, title, products }) => {
   const getProductDescription = (product) =>
     product.features?.[0] || "Details not available.";
@@ -16,7 +15,7 @@ const ProductSection = ({ id, title, products }) => {
   return (
     <>
       <div id={id} className="scroll-mt-20 mb-2">
-        <h2 className="text-4xl font-bold text-gray-900 mb-2 text-center uppercase tracking-wider">
+        <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2 text-center uppercase tracking-wider">
           {title}
         </h2>
         <p className="text-gray-500 text-center text-sm md:text-base mb-8">
@@ -25,7 +24,7 @@ const ProductSection = ({ id, title, products }) => {
         <div className="w-16 h-1 bg-gradient-to-r from-green-600 to-green-700 mx-auto mb-8 rounded"></div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="flex flex-wrap justify-center gap-4 md:gap-6">
         {products.map((product) => {
           const slug = product.title
             .toLowerCase()
@@ -33,20 +32,13 @@ const ProductSection = ({ id, title, products }) => {
             .replace(/(^-|-$)/g, "");
 
           return (
-            <Link
+            <a
               id={`p-${slug}`}
               key={product.id}
-              to={`/product/${product.id}`}
-              className="group"
+              href={`/product/${product.id}`}
+              className="group w-full sm:w-[48%] md:w-[23%]"
             >
-              <div
-                className="relative bg-white border border-gray-100 rounded-lg p-4 md:p-5
-                           transition-all duration-300 flex flex-col items-center text-center min-h-[340px]"
-              >
-                {/* Card overlay */}
-                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 bg-black pointer-events-none"></div>
-
-                {/* Product Image */}
+              <div className="relative bg-gray-100 hover:bg-green-50 border border-gray-100 hover:border-green-300 rounded-lg p-4 md:p-5 flex flex-col items-center text-center min-h-[340px]">
                 <div className="w-full h-40 md:h-48 flex items-center justify-center mb-4 rounded-md overflow-hidden">
                   <img
                     src={product.image}
@@ -55,29 +47,22 @@ const ProductSection = ({ id, title, products }) => {
                   />
                 </div>
 
-                {/* Product Info */}
                 <div className="flex flex-col flex-grow justify-between w-full">
                   <div>
                     <h3 className="text-base md:text-lg font-bold text-gray-900 line-clamp-2 mb-2 transition group-hover:text-green-700">
                       {product.title}
                     </h3>
-                    <p className="text-xs md:text-sm text-gray-600 line-clamp-3 mb-4 leading-relaxed">
+                    <p className="text-xs md:text-sm text-gray-600 line-clamp-2 h-10 mb-4 leading-relaxed group-hover:text-black">
                       {getProductDescription(product)}
                     </p>
                   </div>
 
-                  {/* Learn More Button */}
-                  <button
-                    className="text-green-700 border-2 border-green-700 text-sm font-semibold
-                               px-4 py-2 rounded-md hover:bg-green-700 hover:text-white hover:shadow-md hover:scale-105
-                               transition-all duration-300 ease-out w-full mt-auto
-                               active:scale-95"
-                  >
+                  <button className="text-green-700 border-2 border-green-700 text-sm font-semibold px-4 py-2 rounded-md hover:bg-green-700 hover:text-white hover:shadow-md hover:scale-105 transition-all duration-300 ease-out w-full mt-auto active:scale-95">
                     Learn More →
                   </button>
                 </div>
               </div>
-            </Link>
+            </a>
           );
         })}
       </div>
@@ -85,155 +70,158 @@ const ProductSection = ({ id, title, products }) => {
   );
 };
 
-// Product List Component with Filters
+// ---------------- PRODUCT LIST ----------------
+const filterCategories = [
+  { id: "all", label: "All Products", icon: Leaf },
+  { id: "herbal", label: "Herbal Healthcare", icon: Leaf },
+  { id: "veterinary", label: "Veterinary Care", icon: PawPrint },
+];
+
+const herbalSubCategories = [
+  { id: "all", label: "All Herbal" },
+  { id: "patent", label: "Patent" },
+  { id: "classical", label: "Classical" },
+];
+
 const ProductList = () => {
-  const location = useLocation();
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [activeMainFilter, setActiveMainFilter] = useState("all");
+  const [activeHerbalFilter, setActiveHerbalFilter] = useState("all");
 
-  useEffect(() => {
-    // Set filter from query params
-    const params = new URLSearchParams(location.search);
-    const filterParam = params.get("filter");
-    if (filterParam === "herbal") setActiveFilter("herbal");
-    else if (filterParam === "veterinary") setActiveFilter("veterinary");
-  }, [location.search]);
+  // Toggle dropdown card
+  const toggleFilter = () => setIsFilterOpen((v) => !v);
 
-  useEffect(() => {
-    if (location.pathname === "/products" && location.hash) {
-      const id = location.hash.replace("#", "");
-      const el =
-        document.getElementById(id) ||
-        document.getElementById(`p-${id}`) ||
-        document.getElementById(`p-${id.replace(/[^a-z0-9]+/g, "-")}`);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, [location]);
-
-  const filterCategories = [
-    { id: "all", label: "All Products", icon: Leaf },
-    { id: "patent", label: "Patent Medicines", icon: Pill },
-    { id: "classical", label: "Classical Medicines", icon: Leaf },
-    { id: "veterinary", label: "Veterinary Care", icon: PawPrint },
-  ];
-
-  const pillLabel = (id, label) => {
-    const map = {
-      all: "ALL",
-      patent: "PATENT",
-      classical: "CLASSICAL",
-      veterinary: "VETERINARY CARE",
-    };
-    return map[id] || label.toUpperCase();
+  const handleMainFilterChange = (filter) => {
+    setActiveMainFilter(filter);
+    if (filter !== "herbal") setActiveHerbalFilter("all");
   };
 
-  const getFilteredProducts = () => {
-    switch (activeFilter) {
-      case "patent":
-        return productData;
-      case "classical":
-        return classicalProductData;
-      case "herbal":
-        return [...productData, ...classicalProductData];
-      case "veterinary":
-        return veterinaryProductData;
-      case "all":
-      default:
-        return [...productData, ...classicalProductData, ...veterinaryProductData];
-    }
+  const handleHerbalFilterChange = (filter) => {
+    setActiveHerbalFilter(filter);
+    setActiveMainFilter("herbal");
   };
 
-  const filteredProducts = getFilteredProducts();
+  // Filter products
+  const filteredProducts = useMemo(() => {
+    let products = [];
+    if (activeMainFilter === "all") {
+      products = [...productData, ...classicalProductData, ...veterinaryProductData];
+    } else if (activeMainFilter === "herbal") {
+      if (activeHerbalFilter === "all") {
+        products = [...productData, ...classicalProductData];
+      } else if (activeHerbalFilter === "patent") {
+        products = productData;
+      } else {
+        products = classicalProductData;
+      }
+    } else if (activeMainFilter === "veterinary") {
+      products = veterinaryProductData;
+    }
+    return products;
+  }, [activeMainFilter, activeHerbalFilter]);
+
+  // Split products by type for sections
+  const patentFiltered = filteredProducts.filter((p) => productData.includes(p));
+  const classicalFiltered = filteredProducts.filter((p) => classicalProductData.includes(p));
+  const veterinaryFiltered = filteredProducts.filter((p) => veterinaryProductData.includes(p));
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Page Header */}
-      <div className="bg-gradient-to-r text-green py-6 md:py-12">
-        <div className="max-w-7xl mx-auto px-6 flex items-start md:items-center justify-between gap-4">
-          <div className="flex-1"></div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50  to-white relative">
+      {/* Filters (anchored inside products container) */}
+      <div className="p-2 md:p-2 max-w-7xl mx-auto">
+        <div className="flex justify-end mb-2   relative">
+          <button
+            onClick={toggleFilter}
+            className="inline-flex items-center gap-2 px-3 py-2 rounded-md  bg-green-700 text-white hover:bg-green-800 shadow"
+            aria-label="Toggle filters"
+            title="Filter"
+          >
+            {isFilterOpen ? <X className="w-5 h-5" /> : <Filter className="w-5 h-5" />}
+            <span className="text-sm font-semibold">Filter</span>
+          </button>
 
-          {/* Desktop Filters */}
-          <div className="hidden md:flex items-center gap-4">
-            <div className="flex items-center gap-2 text-green/95">
-              <Filter className="w-5 h-5 text-black" />
-              <span className="font-semibold text-green-900">Filter by</span>
-            </div>
+          {isFilterOpen && (
+            <div className="absolute right-0 top-full mt-3 w-72 bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50">
+              <button
+                onClick={toggleFilter}
+                className="absolute top-2 right-2 text-green-700 hover:text-green-900"
+              >
+                {/* <X size={20} /> */}
+              </button>
 
-            <div className="flex items-center gap-2">
-              {filterCategories.map((category) => {
-                const isActive = activeFilter === category.id;
-                return (
-                  <button
-                    key={category.id}
-                    onClick={() => setActiveFilter(category.id)}
-                    className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide transition-all duration-200 border shadow-sm
-                      ${
-                        isActive
-                          ? "bg-green text-green-700 border-green"
-                          : "bg-green-700 text-white border-green/30 hover:bg-white-600/50 hover:border-green/50"
-                      }`}
-                  >
-                    {pillLabel(category.id, category.label)}
-                  </button>
-                );
-              })}
+              <h3 className="text-lg font-bold text-gray-800 mb-3 border-b pb-2">
+                Filter By Category
+              </h3>
+
+              <div className="space-y-4">
+                {/* Main Category */}
+                <div>
+                  <label className="block text-green-700 font-semibold mb-2">Main Category</label>
+                  <div className="flex flex-wrap gap-2">
+                    {filterCategories.map((filter) => (
+                      <button
+                        key={filter.id}
+                        onClick={() => handleMainFilterChange(filter.id)}
+                        className={`px-3 py-1.5 rounded-full text-sm font-medium transition ${
+                          activeMainFilter === filter.id
+                            ? "bg-green-700 text-white"
+                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        }`}
+                      >
+                        {filter.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Herbal Sub-Category */}
+                {activeMainFilter === "herbal" && (
+                  <div className="pt-3 border-t">
+                    <label className="block text-green-700 font-semibold mb-2">Herbal Sub-Category</label>
+                    <div className="flex flex-wrap gap-2">
+                      {herbalSubCategories.map((sub) => (
+                        <button
+                          key={sub.id}
+                          onClick={() => handleHerbalFilterChange(sub.id)}
+                          className={`px-3 py-1.5 rounded-full text-sm font-medium transition ${
+                            activeHerbalFilter === sub.id
+                              ? "bg-green-600 text-white"
+                              : "bg-green-100 text-green-700 hover:bg-green-200"
+                          }`}
+                        >
+                          {sub.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
-
-      {/* Mobile Filters */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm md:hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-3">
-          <div className="flex items-center gap-3 overflow-x-auto">
-            <div className="flex items-center gap-2 shrink-0 px-2">
-              <Filter className="w-5 h-5 text-gray-600" />
-              <span className="text-gray-700 font-semibold">Filter by</span>
-            </div>
-            <div className="flex gap-2 items-center py-1">
-              {filterCategories.map((category) => {
-                const isActive = activeFilter === category.id;
-                return (
-                  <button
-                    key={category.id}
-                    onClick={() => setActiveFilter(category.id)}
-                    className={`px-3 py-1 rounded-full text-xs font-semibold uppercase transition-all duration-200 shrink-0 ${
-                      isActive ? "bg-green-700 text-white shadow-lg" : "bg-blue-500 text-white hover:bg-blue-600"
-                    }`}
-                  >
-                    {pillLabel(category.id, category.label)}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
+        {/* Products container continues below */}
 
       {/* Products */}
-      <div className="p-6 md:p-12 max-w-7xl mx-auto">
-        {activeFilter === "all" ? (
-          <>
-            <ProductSection id="patent" title="Patent Herbal Medicines" products={productData} />
-            <div className="mt-16 md:mt-20 pt-12 border-t-2 border-gray-200">
-              <ProductSection id="classical" title="Classical Herbal Medicines" products={classicalProductData} />
-            </div>
-            <div className="mt-16 md:mt-20 pt-12 border-t-2 border-gray-200">
-              <ProductSection id="veterinary" title="Animal Herbal Medicines (Veterinary Care)" products={veterinaryProductData} />
-            </div>
-          </>
-        ) : activeFilter === "herbal" ? (
-          <>
-            <ProductSection id="patent" title="Patent Herbal Medicines" products={productData} />
-            <div className="mt-16 md:mt-20 pt-12 border-t-2 border-gray-200">
-              <ProductSection id="classical" title="Classical Herbal Medicines" products={classicalProductData} />
-            </div>
-          </>
-        ) : (
-          <ProductSection
-            id={activeFilter}
-            title={filterCategories.find((c) => c.id === activeFilter)?.label}
-            products={filteredProducts}
-          />
+      <div className="p-2 md:p-2 max-w-7xl mx-auto">
+        {patentFiltered.length > 0 && (
+          <ProductSection title="Patent Herbal Medicines" products={patentFiltered} />
+        )}
+        {classicalFiltered.length > 0 && (
+          <div className="mt-2 md:mt-2 pt-2 ">
+            <ProductSection title="Classical Herbal Medicines" products={classicalFiltered} />
+          </div>
+        )}
+        {veterinaryFiltered.length > 0 && (
+          <div className="mt-2 md:mt-2 pt-2 ">
+            <ProductSection title="Animal Herbal Medicines (Veterinary Care)" products={veterinaryFiltered} />
+          </div>
+        )}
+        {filteredProducts.length === 0 && (
+          <div className="py-20 text-center text-gray-500">
+            <h3 className="text-xl font-semibold">No Products Match Your Filter</h3>
+            <p>Try selecting another option.</p>
+          </div>
         )}
       </div>
 

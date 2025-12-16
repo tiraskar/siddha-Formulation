@@ -97,7 +97,7 @@ const ProductDescription = ({ product }) => {
         </div>
 
         {/* Content */}
-        <div className="mt-1 bg-[#fcfbf7] p-6 md:py-12 rounded-b-lg mx-4">
+        <div className="mt-1 bg-gray-50 p-6 md:py-12 rounded-b-lg mx-4">
           {contentData[activeTabIndex].content}
         </div>
       </div>
@@ -111,13 +111,10 @@ const ProductDescription = ({ product }) => {
 const RelatedProductCard = ({ product }) => (
   <Link to={`/product/${product.id}`} className="block relative group">
     <div
-      className="bg-white border border-gray-100 rounded-lg p-3 md:p-4
+      className="bg-gray-100 hover:bg-green-50 border border-gray-100 hover:border hover:border-green-300 rounded-lg p-3 md:p-4
                   transition-shadow duration-300
                  flex flex-col items-center text-center min-h-[300px] relative overflow-hidden"
     >
-      {/* Black overlay on hover */}
-      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition-opacity duration-300 rounded-lg pointer-events-none"></div>
-
       {/* Product Image */}
       <div className="w-full h-32 mb-4 flex items-center justify-center rounded-md overflow-hidden  relative z-10">
         <img
@@ -128,12 +125,12 @@ const RelatedProductCard = ({ product }) => (
       </div>
 
       {/* Title */}
-      <h4 className="text-sm md:text-base font-semibold text-gray-800 h-10 overflow-hidden leading-tight line-clamp-2 relative z-10">
+      <h4 className="text-sm md:text-base font-semibold text-gray-800 h-10 overflow-hidden leading-tight line-clamp-2 relative z-10 ">
         {product.title}
       </h4>
 
       {/* Short Description */}
-      <p className="text-xs md:text-sm text-gray-600 h-10 overflow-hidden line-clamp-2 my-3 relative z-10">
+      <p className="text-xs md:text-sm text-gray-600 h-10 overflow-hidden line-clamp-2 my-3 relative z-10 ">
         {product.description || product.shortDescription || product.features?.[0] || "Short description coming soon."}
       </p>
 
@@ -181,7 +178,7 @@ const RelatedProducts = ({ currentProductId }) => {
         </h2>
         <p className="text-gray-500 text-sm mb-8 text-center">{categoryTitle}</p>
 
-        <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6">
+        <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6">
           {relatedItems.map((product) => (
             <RelatedProductCard key={product.id} product={product} />
           ))}
@@ -193,59 +190,82 @@ const RelatedProducts = ({ currentProductId }) => {
 
 // ----------------------------------------------------------------------
 // 5. MAIN PRODUCT DETAIL COMPONENT
-// ----------------------------------------------------------------------
+// 
 const ProductDetail = () => {
   const { id } = useParams();
   const productId = parseInt(id);
 
+  // Search across the merged array (allProducts)
   const product = allProducts.find((p) => p.id === productId);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [productId]);
 
-  if (!product) return <Navigate to="/" />;
+  if (!product) {
+    return <Navigate to="/" />;
+  }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center p-4 md:p-6 font-sans relative pb-32">
-      {/* Back Button */}
+    <div className="min-h-screen bg-white flex flex-col items-center p-4 md:p-6 font-sans relative pb-32">
+      {/* Back Button (kept unchanged for good usability) */}
       <Link
-        to="/"
+        to="/products"
         className="self-start m-4 md:m-8 flex items-center text-gray-700 font-semibold hover:text-gray-900 transition max-w-[1100px] w-full"
       >
         ← Back to all products
       </Link>
 
-      {/* MASTER CONTAINER */}
-      <div className="bg-white rounded-lg shadow-xl max-w-[1100px] w-full mt-0 md:mt-4 overflow-hidden">
+      {/* --- MASTER CONTAINER --- */}
+      <div className="bg-white rounded-lg max-w-[1100px] w-full mt-0 overflow-hidden  border border-gray-100">
+        {/* --- TOP SECTION: MAIN PRODUCT INFO GRID --- */}
         <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Left: Image */}
-          <div className="bg-[#fcfbf7] p-8 flex items-center justify-center relative overflow-hidden mx-4 mt-4">
-            <div className="w-full aspect-square flex items-center justify-center">
+          {/* Left: Image Container (FIXED: Significantly reduced vertical padding) */}
+          {/* Changed px-6 py-6 md:px-8 md:py-8 to px-4 py-4 md:px-6 md:py-6 */}
+          <div className="bg-gray-50 px-4 py-4 md:px-6 md:py-6 flex items-center justify-center relative border border-gray-50 m-5 overflow-hidden">
+            <div className="w-full flex items-center justify-center">
               <img
                 src={product.image}
                 alt={product.title}
-                className="max-w-full max-h-full object-contain p-4"
+                className="max-w-full max-h-[300px] object-contain"
               />
             </div>
           </div>
 
-          {/* Right: Details */}
-          <div className="p-6 md:p-12 flex flex-col justify-center">
-            <h1 className="text-3xl font-semibold text-gray-900 leading-tight mb-2 line-clamp-2 md:line-clamp-none">
+          {/* Right: Details (FIXED: Reduced all padding) */}
+          {/* Changed p-6 md:p-8 to p-4 md:p-6 */}
+          <div className="p-4 md:p-6 flex flex-col justify-start ">
+            {/* Title: Remains tight to the top padding */}
+            <h1 className="text-3xl md:text-6xl font-bold border-b-2  text-green-700 leading-snug mb-0 pb-0">
               {product.title}
             </h1>
+
+            {/* Key Benefits (Tighter spacing) */}
+            {/* Reduced mt-3 pt-3 to mt-2 pt-2 */}
+            <div className="mt-10 pt-2  border-gray-100 ">
+              <h3 className="text-lg font-bold text-gray-800 border-b border-gray-100 uppercase tracking-wider mb-2">
+                Key Benefits
+              </h3>
+              <ul className="space-y-1 text-lg text-gray-700 list-disc pl-4 marker:text-[#6e9e54] mb-0">
+                {product.features?.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* Product Tabs */}
+        {/* --- BOTTOM SECTION: DYNAMIC PRODUCT DETAILS (Tabs) --- */}
         <ProductDescription product={product} />
       </div>
+      {/* --- END MASTER CONTAINER --- */}
 
-      {/* RELATED PRODUCTS */}
+      {/* RELATED PRODUCTS SECTION */}
       <RelatedProducts currentProductId={productId} />
     </div>
   );
 };
+
+
 
 export default ProductDetail;

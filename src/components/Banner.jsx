@@ -40,10 +40,10 @@ export default function Banner() {
         <section className="py-8 bg-white">
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[ 
-              { value: "25", label: "Years Experience" },
-              { value: "50k+", label: "Happy Customers" },
-              { value: "1000+", label: "Reviews" },
-              { value: "100%", label: "Pure Products" },
+              { value: "31+", label: "Years Experience" },
+              { value: "90+", label: "Herbal Products" },
+              { value: "65k", label: "sq.Ft Facility" },
+              { value: "100%", label: "Natural ingredients" },
             ].map((item, index) => (
               <div key={index} className="p-6 bg-green-50 rounded-xl shadow">
                 <h2 className="text-3xl font-bold text-green-700">{item.value}</h2>
@@ -54,7 +54,7 @@ export default function Banner() {
         </section>
 
         {/* NEW CALL TO ACTION BANNER: Ready to Experience Natural Healing? (Placed at the end/bottom) */}
-        <section className="py-8 px-4 bg-gradient-to-r  from-green-800 to-green-200 text-white text-center">
+        <section className="py-8 px-4 bg-gradient-to-r  from-green-800 to-green-700 text-white text-center">
   
             {/* GET IN TOUCH CTA */}
             <div className="inline-block px-6 py-2 mb-4 text-sm font-semibold tracking-wider uppercase bg-yellow-400 text-gray-800 rounded-full shadow-md">

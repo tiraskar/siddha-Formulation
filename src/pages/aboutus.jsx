@@ -5,7 +5,7 @@ import ScrollUpButton from "../common/ScrollUpButton";
 // Define the slides data for the carousel
 const slides = [
   {
-    title: "About Siddha Foundation",
+    title: "About Siddha Formulation",
     subtitle:
       "A legacy of Ayurveda dedicated to transforming lives through pure, natural, and scientifically crafted herbal wellness.",
   },
@@ -97,7 +97,7 @@ export default function AboutUs() {
                 </h2>
 
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                  Siddha Foundation was born with a vision to restore the
+                  Siddha Formulation was born with a vision to restore the
                   ancient healing wisdom of Ayurveda and integrate it with
                   modern scientific standards. For over two decades, our
                   journey has revolved around crafting high-quality herbal
@@ -113,7 +113,7 @@ export default function AboutUs() {
                 </p>
 
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  Today, thousands of families trust Siddha Foundation for
+                  Today, thousands of families trust Siddha Formulation for
                   their daily wellness and healing needs. Our mission continues:
                   to make natural and holistic health accessible to everyone.
                 </p>
@@ -175,7 +175,7 @@ export default function AboutUs() {
         {/* Why Choose Us */}
         <section className="mb-24">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
-            Why Choose Siddha Foundation?
+            Why Choose Siddha Formulation?
           </h2>
           <p className="text-center text-gray-600 mb-14 max-w-2xl mx-auto text-lg">
             We bring you premium Ayurvedic wellness backed by years of research,

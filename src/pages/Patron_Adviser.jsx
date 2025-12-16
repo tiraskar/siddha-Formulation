@@ -1,10 +1,8 @@
 import React from "react";
-import AboutCommonHeroLayout from "../common/AboutCommonHeroLayout";
 
 export default function Patron_Adviser() {
   return (
     <div className="w-full bg-[#f7fbf7]">
-      <AboutCommonHeroLayout />
 
       {/* ===== PATRON & ADVISER ===== */}
       <section className="bg-white py-14">

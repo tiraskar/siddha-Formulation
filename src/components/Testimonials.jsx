@@ -7,7 +7,7 @@
 //       name: "Rajesh Kumar",
 //       role: "Business Owner",
 //       image: "https://i.pravatar.cc/150?img=1",
-//       text: "The quality of products from Siddha Foundation is exceptional. I've been using their herbal medicines for the past 6 months and the results are outstanding. Highly recommended!",
+//       text: "The quality of products from Siddha Formulation is exceptional. I've been using their herbal medicines for the past 6 months and the results are outstanding. Highly recommended!",
 //       rating: 5,
 //     },
 //     {
@@ -31,7 +31,7 @@
 //       name: "Sneha Desai",
 //       role: "Homemaker",
 //       image: "https://i.pravatar.cc/150?img=9",
-//       text: "I trust Siddha Foundation with my family's health. Their products are natural, safe, and highly effective. The entire family uses their products now.",
+//       text: "I trust Siddha Formulation with my family's health. Their products are natural, safe, and highly effective. The entire family uses their products now.",
 //       rating: 5,
 //     },
 //     {
@@ -39,7 +39,7 @@
 //       name: "Arjun Patel",
 //       role: "Student",
 //       image: "https://i.pravatar.cc/150?img=2",
-//       text: "Great products at affordable prices. The immunity booster has helped me stay healthy during tough study periods. Thank you, Siddha Foundation!",
+//       text: "Great products at affordable prices. The immunity booster has helped me stay healthy during tough study periods. Thank you, Siddha Formulation!",
 //       rating: 4,
 //     },
 //     {
@@ -72,7 +72,7 @@
 //             What Our Customers Say
 //           </h2>
 //           <p className="text-gray-600 max-w-2xl mx-auto">
-//             Join thousands of satisfied customers who trust Siddha Foundation for their health and wellness journey.
+//             Join thousands of satisfied customers who trust Siddha Formulation for their health and wellness journey.
 //           </p>
 //         </div>
 

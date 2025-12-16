@@ -21,15 +21,15 @@ export default function Hero() {
 
     {/* Left Text Section */}
     <div className="animate-fadeIn">
-      <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-4">
+      <h1 className="text-4xl md:text-6xl font-bold text-[#096e3b]  mb-4">
         Siddha
         <br />
-        <span className="text-green-700">
-          Foundation Pvt. Ltd
+        <span className="text-[#00A651]">
+          Formulation Pvt.Ltd
         </span>
       </h1>
 
-      <p className="text-green-700 mt-4 mb-4 md:max-w-md text-lg font-semibold">
+      <p className="text-black/70 mt-4 mb-4 md:max-w-md text-lg font-semibold">
         Revolutionizing Herbal Healthcare in Nepal:
       </p>
 
@@ -42,7 +42,7 @@ export default function Hero() {
       <div className="flex flex-wrap gap-4">
         <button onClick={openDiscover} className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold
           hover:bg-green-800 transition-all hover:shadow-lg transform hover:scale-105
-          flex items-center gap-2 text-lg">
+          flex items-center gap-2 text-lg tracking-wider">
           Our Products
           <span className="text-2xl">→</span>
         </button>
@@ -68,7 +68,7 @@ export default function Hero() {
 {/* Bottom Ayurvedic Info Section */}
 <section className="relative w-full mt-0">
   <div
-    className="relative w-full h-[450px] md:h-[520px] bg-cover bg-center flex items-center justify-center px-6"
+    className="relative w-full h-[450px] md:h-[320px] bg-cover bg-center flex items-center justify-center px-6"
     style={{
       backgroundImage: "url('/assets/img/Herbal-Medicine.jpg')",
     }}
@@ -78,19 +78,13 @@ export default function Hero() {
 
     {/* Content */}
     <div className="relative z-10 max-w-5xl mx-auto text-center text-white px-4">
-      <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-        Buy Ayurvedic Medicine & Products Online from India's
-        <br />
-        Largest Ayurvedic Shopping Store
+      <h2 className="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
+Ancient Wisdom, Modern Healing
       </h2>
 
       <p className="text-base md:text-lg leading-relaxed text-gray-100">
-        AyurKart, the online ayurvedic store sells all kinds of ayurvedic
-        medicine and ayurvedic products online from India's top brands like
-        Kottakkal Arya VaidyaSala, Vaidyaratnam, AVP, Kerala Ayurveda, Himalaya,
-        Dabur, Zandu Ayurveda & Alarsin etc. We aim to bring authentic
-        ayurvedic herbs and medicines to your doorstep with the fastest delivery
-        possible.
+Blending 3000 years of Ayurvedic tradition with cutting-edge research to bring you the purest herbal formulations
+        
       </p>
     </div>
   </div>

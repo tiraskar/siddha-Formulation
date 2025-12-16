@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Phone } from "lucide-react";
+
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,12 +33,12 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <img
             src="/assets/img/siddha.png"
-            alt="Siddha Foundation"
+            alt="Siddha Formulation"
             className="h-14 object-contain"
           />
           <div>
             <h1 className="text-xl md:text-2xl font-bold text-green-800">
-              Siddha Foundation
+              Siddha Formulation
             </h1>
             <p className="text-xs md:text-sm text-gray-500">
               Herbal Excellence
@@ -47,6 +49,7 @@ export default function Navbar() {
         {/* CONTACT + HAMBURGER */}
         <div className="flex items-center gap-4">
           <div className="hidden md:block text-sm text-gray-700 font-medium">
+            <Phone className="inline-block mr-2 h-5 w-5 text-green-800" />
             Contact Us : <span className="text-green-800">9857030665 / 9851214257</span>
           </div>
 

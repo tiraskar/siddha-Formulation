@@ -1,13 +1,11 @@
 import React from "react";
 import { Settings, Mail, Phone, Award, Factory } from "lucide-react";
 // DepartmentLayout inlined below (removed external dependency)
-import AboutCommonHeroLayout from "../../common/AboutCommonHeroLayout";
 
 export default function Production() {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <AboutCommonHeroLayout />
 
       {/* Main Container */}
       <section className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-4 py-8">
@@ -57,7 +55,7 @@ export default function Production() {
                 <span className="inline-block bg-green-600 text-white px-4 py-1 rounded-md text-sm mb-4">Message from the Director – Production</span>
 
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  Ayurveda is a time-tested system of natural medicine with a history spanning more than 5,000 years. It follows a holistic philosophy that focuses on harmony between the mind, body, and spirit. At Siddha Foundation, our production philosophy is rooted in this ancient wisdom while embracing modern manufacturing excellence.
+                  Ayurveda is a time-tested system of natural medicine with a history spanning more than 5,000 years. It follows a holistic philosophy that focuses on harmony between the mind, body, and spirit. At Siddha Formulation, our production philosophy is rooted in this ancient wisdom while embracing modern manufacturing excellence.
                   
                   Nepal is uniquely positioned as a center for authentic Ayurvedic medicine due to its rich biodiversity and abundance of medicinal plants. Our production processes carefully source, preserve, and utilize these natural resources with sustainability and ethical responsibility at the core.
                   
@@ -65,7 +63,7 @@ export default function Production() {
                   
                   We produce a wide range of classical and modern Ayurvedic formulations including Chyawanprash, Triphala, Ashwagandha, and Brahmi. Each product undergoes rigorous quality control, from raw material inspection to final packaging, to deliver trusted healthcare solutions.
                   
-                  With increasing global recognition of natural and preventive healthcare, Siddha Foundation remains committed to innovation, quality, and global standards. Our vision is to position Nepal as a respected global hub for premium Ayurvedic medicine production.
+                  With increasing global recognition of natural and preventive healthcare, Siddha Formulation remains committed to innovation, quality, and global standards. Our vision is to position Nepal as a respected global hub for premium Ayurvedic medicine production.
                 </p>
               </div>
             </div>

@@ -1,13 +1,11 @@
 import React from "react";
 import {  ShieldCheck, TrendingUp, Factory, Mail, Phone } from "lucide-react";
 // DepartmentLayout inlined below (removed external dependency)
-import AboutCommonHeroLayout from "../../common/AboutCommonHeroLayout";
 
 export default function Finance() {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <AboutCommonHeroLayout />
 
       {/* Main Container */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
