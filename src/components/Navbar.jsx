@@ -59,7 +59,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ================= MAIN NAV ================= */}
+    
       <nav className="bg-green-700 relative">
         <div className="max-w-7xl mx-auto px-4">
 
