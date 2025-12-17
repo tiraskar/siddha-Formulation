@@ -59,7 +59,7 @@ const ProductDescription = ({ product }) => {
           <button
             key={index}
             onClick={() => setActiveTabIndex(index)}
-            className={`py-2 px-4 text-1xl rounded-2xl font-semibold transition whitespace-nowrap flex-shrink-0 ${
+            className={`py-2 px-4 text-1xl  font-semibold transition whitespace-nowrap flex-shrink-0 ${
               index === activeTabIndex
                 ? "bg-green-700 text-white"
                 : "text-gray-700 hover:bg-gray-100"
@@ -89,21 +89,21 @@ const ProductDescription = ({ product }) => {
 // ----------------------------------------------------------------------
 const ProductDetailModal = ({ product, onClose }) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center  justify-center">
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/50" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative w-full max-w-[1100px] mx-4">
+      <div className="relative w-full max-w-[400px] md:max-w-[1100px] border-0 mx-4">
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-50 bg-white rounded-full p-2 shadow"
+          className="absolute top-3 right-3 z-50  rounded-full p-2 "
         >
           ✕
         </button>
 
         <div
-          className="bg-white rounded-lg border"
+          className="bg-white rounded-lg "
           onClick={(e) => e.stopPropagation()}
         >
           {/* TOP SECTION */}
@@ -112,7 +112,7 @@ const ProductDetailModal = ({ product, onClose }) => {
               <img
                 src={product.image}
                 alt={product.title}
-                className="max-h-[300px] object-contain"
+                className=" max-h-[220px] md:max-h-[300px] object-contain"
               />
             </div>
 
@@ -121,7 +121,7 @@ const ProductDetailModal = ({ product, onClose }) => {
                 {product.title}
               </h1>
 
-              <div className="mt-6">
+              <div className="mt-3 md:mt-6">
                 <h3 className="font-bold text-green-600 text-lg mb-2">
                   Key Benefits
                 </h3>

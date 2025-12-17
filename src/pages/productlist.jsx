@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from "react";
+// import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import {
   productData,
   veterinaryProductData,
@@ -51,16 +52,16 @@ const ProductSection = ({ title, products, onProductClick }) => {
                   </p>
                 </div>
 
-                      {/* Button */}
-               <button
-        className="w-full mt-auto px-4 py-2 rounded-md border-2 border-green-700
+                {/* Button */}
+                <button
+                  className="w-full mt-auto px-4 py-2 rounded-md border-2 border-green-700
                    text-green-700 font-semibold
                    hover:bg-green-800 hover:text-white hover:shadow-md
                    transition-all duration-300 relative z-10 tracking-wider"
-        type="button"
-      >
-        Learn More →
-      </button>
+                  type="button"
+                >
+                  Learn More →
+                </button>
               </div>
             </div>
           </div>
@@ -106,7 +107,11 @@ const ProductList = () => {
   const filteredProducts = useMemo(() => {
     let products = [];
     if (activeMainFilter === "all") {
-      products = [...productData, ...classicalProductData, ...veterinaryProductData];
+      products = [
+        ...productData,
+        ...classicalProductData,
+        ...veterinaryProductData,
+      ];
     } else if (activeMainFilter === "herbal") {
       if (activeHerbalFilter === "all") {
         products = [...productData, ...classicalProductData];
@@ -121,20 +126,45 @@ const ProductList = () => {
     return products;
   }, [activeMainFilter, activeHerbalFilter]);
 
-  const patentFiltered = filteredProducts.filter((p) => productData.includes(p));
-  const classicalFiltered = filteredProducts.filter((p) => classicalProductData.includes(p));
-  const veterinaryFiltered = filteredProducts.filter((p) => veterinaryProductData.includes(p));
+  const patentFiltered = filteredProducts.filter((p) =>
+    productData.includes(p)
+  );
+  const classicalFiltered = filteredProducts.filter((p) =>
+    classicalProductData.includes(p)
+  );
+  const veterinaryFiltered = filteredProducts.filter((p) =>
+    veterinaryProductData.includes(p)
+  );
+  //filter botton for outside click
+  const filterRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        setIsFilterOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white relative">
       {/* Filters */}
       <div className="p-2 md:p-2 max-w-7xl mx-auto">
-        <div className="flex justify-end mb-2 relative">
+        <div className="flex justify-end mb-2 relative" ref={filterRef}>
           <button
             onClick={toggleFilter}
             className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-green-700 text-white hover:bg-green-800 shadow"
           >
-            {isFilterOpen ? <X className="w-5 h-5" /> : <Filter className="w-5 h-5" />}
+            {isFilterOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Filter className="w-5 h-5" />
+            )}
             <span className="text-sm font-semibold">Filter</span>
           </button>
 
@@ -147,7 +177,9 @@ const ProductList = () => {
               <div className="space-y-4">
                 {/* Main Category */}
                 <div>
-                  <label className="block text-green-700 font-semibold mb-2">Main Category</label>
+                  <label className="block text-green-700 font-semibold mb-2">
+                    Main Category
+                  </label>
                   <div className="flex flex-wrap gap-2">
                     {filterCategories.map((filter) => (
                       <button
@@ -223,7 +255,9 @@ const ProductList = () => {
         )}
         {filteredProducts.length === 0 && (
           <div className="py-20 text-center text-gray-500">
-            <h3 className="text-xl font-semibold">No Products Match Your Filter</h3>
+            <h3 className="text-xl font-semibold">
+              No Products Match Your Filter
+            </h3>
             <p>Try selecting another option.</p>
           </div>
         )}
