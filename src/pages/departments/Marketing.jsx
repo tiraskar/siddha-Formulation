@@ -1,5 +1,12 @@
 import React from "react";
-import { Settings, Mail, Phone, Award,TrendingUp, Factory } from "lucide-react";
+import {
+  Settings,
+  Mail,
+  Phone,
+  Award,
+  TrendingUp,
+  Factory,
+} from "lucide-react";
 // DepartmentLayout inlined below (removed external dependency)
 
 export default function Marketing() {
@@ -9,22 +16,20 @@ export default function Marketing() {
 
       {/* Main Container */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    
-
         {/* Department Layout (inlined) */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4">
-
             {/* Header */}
             <div className="text-center mb-12">
               <div className="flex justify-center mb-4 text-green-600">
                 <TrendingUp className="w-10 h-10 text-green-700" />
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900">Marketing Department</h1>
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+                Marketing Department
+              </h1>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
-
               {/* Head Card */}
               <div className="bg-gray-50 rounded-xl shadow-md p-6 text-center">
                 <img
@@ -32,36 +37,71 @@ export default function Marketing() {
                   className="w-50 h-60 rounded-2xl mx-auto mb-4 object-cover"
                 />
                 <h3 className="text-lg font-semibold">Harihar Bhandari</h3>
-                <p className="text-green-600 text-sm mb-6">Director – Marketing</p>
+                <p className="text-green-600 text-sm mb-6">
+                  Director – Marketing
+                </p>
 
-                <div className="space-y-3">
-                  <a
-                    href={`mailto:siddha.formulation@gmail.com`}
-                    className="flex items-center justify-center gap-2 bg-white p-3 rounded-lg shadow-sm hover:text-green-600"
-                  >
-                    <Mail className="w-4 h-4" /> siddha.formulation@gmail.com
-                  </a>
-                  <a
-                    href={`tel:+9779857030665`}
-                    className="flex items-center justify-center gap-2 bg-white p-3 rounded-lg shadow-sm hover:text-green-600"
-                  >
-                    <Phone className="w-4 h-4" /> +977 9857030665
-                  </a>
+                <div className="space-y-4">
+                  <div className="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                      <Mail className="h-5 w-5 text-green-600" />
+                    </div>
+                    <div>
+                      {/* <div className="text-xs text-gray-500">Email</div> */}
+                      <a
+                        href="mailto:siddha.formulation@gmail.com"
+                        className="text-gray-900 font-medium hover:text-green-600 transition-colors"
+                      >
+                        siddha.formulation@gmail.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                      <Phone className="h-5 w-5 text-green-600" />
+                    </div>
+                    <div>
+                      {/* <div className="text-xs text-gray-500">Phone</div> */}
+                      <a
+                        href="tel:+9779857030665"
+                        className="text-gray-900 font-medium hover:text-green-600 transition-colors"
+                      >
+                        +977 9857030665
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Message */}
               <div className="lg:col-span-2">
-                <span className="inline-block bg-green-600 text-white px-4 py-1 rounded-md text-sm mb-4">Message from the Director – Marketing</span>
+                <span className="inline-block bg-green-600 text-white px-4 py-1 rounded-md text-sm mb-4">
+                  Message from the Director – Marketing
+                </span>
 
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  At Siddha Formulation, we create value for life by offering trusted medical solutions to people. We manage the entire lifecycle of pharmaceutical products, from manufacturing and quality assurance to market supply, branding, and accessibility.
-                  
-                  Our dedicated marketing team works relentlessly to ensure that Siddha products are consistently available and accessible to patients, healthcare professionals, and institutions. Our strategies are closely aligned with sales and support teams to maintain a seamless and positive customer experience at every touchpoint.
-                  
-                  A key responsibility of the marketing department is to strengthen the Siddha brand presence while delivering clear, ethical, and effective communication to our partners, distributors, and collaborators. We ensure that brand messaging reflects trust, scientific integrity, and social responsibility.
-                  
-                  Our team actively engages with healthcare professionals to provide accurate product information, ensuring that both physicians and patients benefit from informed decision-making. Working in close collaboration with sales teams, local affiliates, and global distribution partners, we ensure the safe, compliant, and timely supply of pharmaceutical products across markets.
+                  At Siddha Formulation, we create value for life by offering
+                  trusted medical solutions to people. We manage the entire
+                  lifecycle of pharmaceutical products, from manufacturing and
+                  quality assurance to market supply, branding, and
+                  accessibility. Our dedicated marketing team works relentlessly
+                  to ensure that Siddha products are consistently available and
+                  accessible to patients, healthcare professionals, and
+                  institutions. Our strategies are closely aligned with sales
+                  and support teams to maintain a seamless and positive customer
+                  experience at every touchpoint. A key responsibility of the
+                  marketing department is to strengthen the Siddha brand
+                  presence while delivering clear, ethical, and effective
+                  communication to our partners, distributors, and
+                  collaborators. We ensure that brand messaging reflects trust,
+                  scientific integrity, and social responsibility. Our team
+                  actively engages with healthcare professionals to provide
+                  accurate product information, ensuring that both physicians
+                  and patients benefit from informed decision-making. Working in
+                  close collaboration with sales teams, local affiliates, and
+                  global distribution partners, we ensure the safe, compliant,
+                  and timely supply of pharmaceutical products across markets.
                 </p>
               </div>
             </div>
@@ -98,13 +138,11 @@ export default function Marketing() {
               Professional Engagement
             </h3>
             <p className="mt-2 text-gray-600 text-sm">
-              Collaborating with healthcare professionals and partners to deliver
-              value-driven solutions.
+              Collaborating with healthcare professionals and partners to
+              deliver value-driven solutions.
             </p>
           </div>
         </div>
-
-     
       </section>
     </div>
   );

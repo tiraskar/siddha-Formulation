@@ -34,19 +34,36 @@ export default function Production() {
                   Director – Production
                 </p>
 
-                <div className="space-y-3">
-                  <a
-                    href={`mailto:siddha.formulation@gmail.com`}
-                    className="flex items-center justify-center gap-2 bg-white p-3 rounded-lg shadow-sm hover:text-green-600"
-                  >
-                    <Mail className="w-4 h-4" /> siddha.formulation@gmail.com
-                  </a>
-                  <a
-                    href={`tel:+9779857030665`}
-                    className="flex items-center justify-center gap-2 bg-white p-3 rounded-lg shadow-sm hover:text-green-600"
-                  >
-                    <Phone className="w-4 h-4" /> +977 9857030665
-                  </a>
+                <div className="space-y-4">
+                  <div className="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                      <Mail className="h-5 w-5 text-green-600" />
+                    </div>
+                    <div>
+                      {/* <div className="text-xs text-gray-500">Email</div> */}
+                      <a
+                        href="mailto:siddha.formulation@gmail.com"
+                        className="text-gray-900 font-medium hover:text-green-600 transition-colors"
+                      >
+                        siddha.formulation@gmail.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                      <Phone className="h-5 w-5 text-green-600" />
+                    </div>
+                    <div>
+                      {/* <div className="text-xs text-gray-500">Phone</div> */}
+                      <a
+                        href="tel:+9779857030665"
+                        className="text-gray-900 font-medium hover:text-green-600 transition-colors"
+                      >
+                        +977 9857030665
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
