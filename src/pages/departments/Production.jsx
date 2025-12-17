@@ -55,7 +55,6 @@ export default function Production() {
                       <Phone className="h-5 w-5 text-green-600" />
                     </div>
                     <div>
-                      {/* <div className="text-xs text-gray-500">Phone</div> */}
                       <a
                         href="tel:+9779857030665"
                         className="text-gray-900 font-medium hover:text-green-600 transition-colors"
