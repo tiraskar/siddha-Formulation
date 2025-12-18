@@ -14,7 +14,7 @@ export default function Banner() {
         
   
         {/* WHY AYURVEDA SECTION (Moved up, now followed directly by the CTA banner) */}
-        <section className="py-8 bg-white">
+      <section className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
             
             {/* Image on the left */}
@@ -42,7 +42,7 @@ export default function Banner() {
           </div>
         </section>
       {/* BENEFITS SECTION (Retained at the top) */}
-        <section className="py-8 bg-white">
+      <section className=" bg-white">
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[ 
               { value: "31+", label: "Years Experience" },
@@ -58,7 +58,7 @@ export default function Banner() {
           </div>
         </section>
 {/* WHY TO CHOOSE US SECTION */}
-<section className="py-20 bg-white shadow-amber-50">
+      <section className="py-40 bg-white shadow-amber-50">
   <div className="max-w-7xl mx-auto px-4 text-center">
 
     {/* Top Badge */}
@@ -143,7 +143,7 @@ export default function Banner() {
 
 
         {/* NEW CALL TO ACTION BANNER: Ready to Experience Natural Healing? (Placed at the end/bottom) */}
-        <section className="py-8 px-4 md:pt-20 bg-gradient-to-r h-[300px md:h-105  from-green-800 to-green-700 text-white text-center">
+      <section className="py-20 px-4 md:pt-20 bg-gradient-to-r min-h-[20vh] from-green-800 to-green-700 text-white text-center">
   
             {/* GET IN TOUCH CTA */}
             <div className="inline-block px-4 py-3 mb-2 md:px-8 md:py-4 md:mb-6 text-sm font-semibold tracking-wider uppercase bg-yellow-400 text-gray-800 rounded-full shadow-md">
@@ -151,12 +151,12 @@ export default function Banner() {
             </div>
             
             {/* Main Heading */}
-            <h2 className="text-3xl md:text-4xl font-serif font-light mb-4">
+        <h2 className="text-3xl md:text-4xl font-serif font-semibold ">
               Ready to Experience Natural Healing?
             </h2>
             
             {/* Subtext (Removed mb-10 for tighter vertical spacing) */}
-            <p className="text-lg text-green-100 max-w-2xl mx-auto mb-6">
+        <p className="text-lg text-green-100 max-w-2xl mx-auto py-8">
               Connect with us to learn more about our products and how we can support your health journey
             </p>
 

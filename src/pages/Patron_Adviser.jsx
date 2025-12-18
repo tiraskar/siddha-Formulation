@@ -3,7 +3,7 @@ import { Users, Crown, UsersRound } from "lucide-react";
 
 export default function Patron_Adviser() {
   return (
-    <div className="w-full bg-gray-50 font-serif">
+    <div className="w-full bg-white font-serif">
       {/* ===== HEADER ===== */}
       <section className="py-4">
         <div className="max-w-7xl mx-auto px-4 text-center">

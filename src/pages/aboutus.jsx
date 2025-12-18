@@ -53,7 +53,7 @@ export default function AboutUs() {
   return (
     <div className="min-h-screen bg-gray-50 font-serif">
       <div
-        className="relative h-[300px] md:h-[410px] py-28 flex items-center justify-center text-center text-white overflow-clip"
+        className="relative h-[300px] md:h-[450px] py-28 flex items-center justify-center text-center text-white overflow-clip"
         style={{
           backgroundImage: `url('${slides[currentSlide].bgImage}')`,
           backgroundSize: "cover",
@@ -61,7 +61,7 @@ export default function AboutUs() {
         }}
       >
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black opacity-30"></div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
 
         {/* Content */}
         <div
@@ -97,7 +97,7 @@ export default function AboutUs() {
       {/* Story Section */}
       <div className="max-w-6xl mx-auto px-6 py-20">
         <section className="mb-24">
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 text-justify">
               {/* Text */}
               <div className="p-12 flex flex-col justify-center">

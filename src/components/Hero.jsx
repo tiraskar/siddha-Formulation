@@ -68,29 +68,30 @@ export default function Hero() {
 {/* Bottom Ayurvedic Info Section */}
 <section className="relative w-full mt-0  border-2  ">
   <div
-    className="relative w-full h-[280px] md:h-[420px] bg-cover bg-center flex items-center justify-center px-6"
+          className="relative w-full h-[300px] md:h-[420px] bg-cover bg-center flex items-center justify-center px-6"
     style={{
       backgroundImage: "url('/assets/img/Herbal-Medicine.jpg')",
     }}
   >
     {/* Dark Overlay */}
-    <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
 
     {/* Content */}
     <div className="relative z-10  max-w-5xl mx-auto text-center text-white px-4">
-      <h2 className="text-2xl md:text-4xl font-extrabold mb-6 leading-tight">
+            <h2 className="text-2xl md:text-4xl font-extrabold mb-6 leading-tight tracking-wider">
 Ancient Wisdom, Modern Healing
       </h2>
 
-      <p className="text-base md:text-lg line-clamp-5 md:line-clamp-none leading-relaxed text-gray-100">
+            <p className="text-xs md:text-lg line-clamp-5 md:line-clamp-none  text-gray-100 max-w-4xl text-center md:leading-8">
 Blending 3000 years of Ayurvedic tradition with cutting-edge research.
 
-Combining ancient <br /> wisdom with 
+              Combining ancient  wisdom with
  modern science for superior quality and efficacy.
-Bringing you the <br /> purest herbal formulations for holistic and balanced wellness.
- 
-        
+              <br className="hidden md:block" />        
       </p>
+            <p className="text-xs ">Bringing
+              you the purest
+              herbal formulations for holistic and balanced wellness.</p>
     </div>
   </div>
 </section>

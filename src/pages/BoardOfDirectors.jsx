@@ -67,11 +67,11 @@ const boardMembers = {
 
 const BoardOfDirectors = () => {
   return (
-    <section className="py-6 bg-gray-50 font-serif">
+    <section className="py-6  font-serif bg-white">
       <div className="max-w-7xl mx-auto px-4 ">
         {/* ===== HEADER ===== */}
         <div className="text-center mb-8 ">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-50 rounded-full mb-6">
+          <div className="inline-flex items-center justify-center w-20 h-20  rounded-full mb-6">
             <UsersRound className="h-10 w-10 text-green-900" />
           </div>
           <h2 className="text-4xl md:text-3xl font-bold text-[#096e3b] mb-4">

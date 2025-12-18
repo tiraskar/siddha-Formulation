@@ -29,10 +29,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-6 font-serif">
+    <div className=" min-h-screen p-6 font-serif bg-white">
       <div className="max-w-6xl mx-auto space-y-10">
 
-     
 
         {/* ================= CONTACT FORM ================= */}
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -108,7 +107,7 @@ const Contact = () => {
   <div className="lg:col-span-2 bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300">
     <h2 className="text-3xl font-serif font-semibold text-green-900 flex items-center gap-3 mb-4">
       <MapPin className="w-6 h-6 text-green-800" />
-      Siddha Formulation Location
+              Location
     </h2>
 
     <p className="text-gray-700 mb-4">
@@ -128,7 +127,7 @@ const Contact = () => {
     <div className="space-y-3 text-gray-800">
       <p className="flex items-center gap-2">
         <Mail className="w-5 h-5 text-green-700" />
-        <span className="font-semibold">Email:</span>
+                {/* <span className="font-semibold">Email:</span> */}
         <a
           href="mailto:siddha.formulation@gmail.com"
           className="text-green-700 hover:text-green-900 "
@@ -140,17 +139,17 @@ const Contact = () => {
       <p className="flex items-start gap-2">
         <Phone className="w-5 h-5 text-green-700 mt-1" />
         <span>
-          <span className="font-semibold">Phone:</span>
-          <br />
-          External Relation / Marketing:{" "}
+                  {/* <span className="font-semibold">Phone:</span> */}
+                  {/* <br /> */}
+                  {/* External Relation / Marketing:{" "} */}
           <a
             href="tel:+9779857030665"
             className="text-green-700 hover:text-green-900  ml-1"
           >
-            9857030665
+                    9857030665
           </a>
-          <br />
-          Admin:{" "}
+                  {' '} /{/* <br /> */}
+                  {/* Admin:{" "} */}
           <a
             href="tel:+9779851214257"
             className="text-green-700 hover:text-green-900  ml-1"

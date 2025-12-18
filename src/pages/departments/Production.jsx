@@ -27,7 +27,7 @@ export default function Production() {
               <div className="bg-gray-50 shadow-md p-6 text-center">
                 <img
                   src="/assets/img/RemlalSir.jpeg"
-                  className="w-50 h-70 rounded-2xl mx-auto mb-4 object-cover"
+                  className=" max-h-[200px] max-w-[200px] mx-auto rounded-sm  mb-4 object-cover"
                 />
                 <h3 className="text-lg font-semibold">Remlal Poudel</h3>
                 <p className="text-green-600 text-sm mb-6">

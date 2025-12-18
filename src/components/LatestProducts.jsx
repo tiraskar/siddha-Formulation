@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { productData } from "../productdata.js";
 import ProductDetailModal from "../pages/ProductDetailModel.jsx";
 
-const LatestProducts = () => {
+const LatestProducts = ({ isMainPage }) => {
   const latestProducts = [...productData].reverse().slice(0, 6);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -13,20 +13,20 @@ const LatestProducts = () => {
     <div className="p-6 md:p-12 max-w-6xl mx-auto font-serif">
       {/* Header */}
       <div className="text-center mb-12">
-        <p className="text-gray-700 font-bold text-base md:text-lg uppercase tracking-widest mb-2">
-          Our Collection
-        </p>
+        {!isMainPage && <p className="text-gray-700 font-bold text-base md:text-lg uppercase tracking-widest mb-2">
+          {`Our Collection`}
+        </p>}
         <h1 className="text-3xl md:text-4xl font-bold text-green-800 mb-4">
-          Latest Products
+          {isMainPage ? `Best Sellers` : `Latest Products`}
         </h1>
-        <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+        {!isMainPage && <p className="text-gray-700 text-lg max-w-2xl mx-auto">
           Discover our newest herbal medicines and premium wellness products
-        </p>
+        </p>}
       </div>
 
       {/* Grid */}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-        {latestProducts.map((product) => (
+        {latestProducts?.map((product) => (
           <div
             key={product.id}
             onClick={() => setSelectedProduct(product)}
@@ -38,13 +38,13 @@ const LatestProducts = () => {
                 hover:bg-green-50
                 border
                 border-gray-100
-                bg-gray-200
+                bg-gray-50
                 hover:border-green-300
                 rounded-lg
                 p-4 md:p-5
                 flex flex-col items-center text-center
                 min-h-[300px]
-                transition-all duration-300
+                transition-all duration-500
               "
             >
               {/* Image */}
@@ -69,15 +69,17 @@ const LatestProducts = () => {
                 </div>
 
                 {/* Button */}
-                <button
-                  className="w-full mt-auto px-4 py-2 rounded-md border-2 border-green-700
+                <div className="flex justify-center items-center text-center">
+                  <button
+                    className="w-fit mt-auto px-8 py-2.5 rounded-full border-1.5 border-green-700
                              text-green-700 font-semibold
                              hover:bg-green-800 hover:text-white hover:shadow-md
-                             transition-all duration-300 tracking-wider"
-                  type="button"
-                >
-                  Learn More →
-                </button>
+                             transition-all duration-400 tracking-wider cursor-pointer"
+                    type="button"
+                  >
+                    Learn More →
+                  </button>
+                </div>
               </div>
             </div>
           </div>

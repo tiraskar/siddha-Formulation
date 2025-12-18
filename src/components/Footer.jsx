@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { FaFacebook, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -17,7 +18,8 @@ export default function Footer() {
     {
       href: "https://www.facebook.com/siddha.formulation/",
       label: "Facebook",
-      path: "M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24H12.82v-9.294H9.692V11.01h3.128V8.309c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.696h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z",
+      path: <FaFacebook size={32} color="blue" />,
+      // path: "M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24H12.82v-9.294H9.692V11.01h3.128V8.309c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.696h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z",
     },
     // {
     //   href: "https://www.instagram.com",
@@ -27,12 +29,13 @@ export default function Footer() {
     {
       href: "https://www.youtube.com/@siddhaformulation3781",
       label: "YouTube",
-      path: "M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z",
+      // path: "M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z",
+      path: <FaYoutube size={32} color="red" />,
     },
   ];
 
   return (
-    <div className="  bg-white pt-18">
+    <div className="  bg-white pt-28">
       <footer className="bg-[#0f1720]  text-gray-300  pt-16 pb-8 ">
         <div className="max-w-7xl mx-auto px-6">
           {/* TOP */}
@@ -169,15 +172,9 @@ export default function Footer() {
                   href={icon.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 bg-gray-800 hover:bg-green-600 rounded-full flex items-center justify-center transition"
+                  className="w-11 h-11 bg-white/80  rounded-full flex items-center justify-center transition"
                 >
-                  <svg
-                    className="w-5 h-5 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d={icon.path} />
-                  </svg>
+                  {icon.path}
                 </a>
               ))}
             </div>

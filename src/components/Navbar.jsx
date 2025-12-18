@@ -1,7 +1,37 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Phone } from "lucide-react";
+import { Phone, ChevronDown } from "lucide-react";
 
+// 1. Define the Navigation Data
+const NAV_LINKS = [
+  { title: "Home", path: "/" },
+  { title: "Products", path: "/products" },
+  {
+    title: "About Us",
+    id: "about",
+    children: [
+      {
+        heading: "About Siddha",
+        links: [
+          { label: "Who We Are", path: "/about" },
+          { label: "MD Message", path: "/about/md" },
+          { label: "Board of Directors", path: "/board-of-directors" },
+          { label: "Patron & Adviser", path: "/patron_adviser" },
+        ],
+      },
+      {
+        heading: "Departments",
+        links: [
+          { label: "Marketing", path: "/departments/marketing" },
+          { label: "Production", path: "/departments/production" },
+          { label: "Finance", path: "/departments/finance" },
+        ],
+      },
+    ],
+  },
+  { title: "Blogs", path: "/blog" },
+  { title: "Contact", path: "/contact" },
+];
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,252 +39,135 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState({});
   const closeTimeout = useRef(null);
 
-  // ===== Desktop hover handlers =====
-  const handleSubnavEnter = (menu) => {
+  const handleSubnavEnter = (menuId) => {
     clearTimeout(closeTimeout.current);
-    setSubnav(menu);
+    setSubnav(menuId);
   };
 
   const handleSubnavLeave = () => {
-    closeTimeout.current = setTimeout(() => {
-      setSubnav("");
-    }, 150);
+    closeTimeout.current = setTimeout(() => setSubnav(""), 150);
   };
 
-  const handleMenuClick = () => setSubnav("");
+  const toggleMobileSubnav = (id) => {
+    setMobileOpen((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   return (
     <header className="w-full bg-white shadow-sm relative z-50">
-
-      {/* ================= TOP BAR ================= */}
+      {/* TOP BAR */}
       <div className="max-w-7xl mx-auto px-2 py-2 flex items-center justify-between">
-
-        {/* LOGO */}
         <div className="flex items-center gap-1">
-          <img
-            src="/assets/img/siddha.png"
-            alt="Siddha Formulation"
-            className="h-20  object-contain"
-          />
+          <img src="/assets/img/siddha.png" alt="Logo" className="h-20 object-contain" />
           <div>
-            <h1 className="text-xl md:text-2xl font-bold text-green-800">
-              Siddha Formulation
-            </h1>
-            <p className="text-1xl  md:text-1xl text-gray-700">
-              Herbal Excellence
-            </p>
+            <h1 className="text-xl md:text-2xl font-bold text-green-800">Siddha Formulation</h1>
+            <p className="text-sm text-gray-700">Herbal Excellence</p>
           </div>
         </div>
 
-        {/* CONTACT + HAMBURGER */}
         <div className="flex items-center gap-4">
-        <div className="hidden md:block text-1xl text-gray-700 font-medium">
-  <Phone className="inline-block  mr-2 h-5 w-5 text-green-800" />
-  Contact Us :{" "}
-  {/* <a href="tel:9857030665" className="text-green-800 hover:underline">
-    9857030665
-  </a>
-  {" / "} */}
-  <a href="tel:9851214257" className="text-green-800 hover:underline">
-    9851214257
-  </a>
-</div>
-
-          <button
-            className="md:hidden p-2 text-xl"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            ☰
+          <div className="hidden md:block text-gray-700 font-medium">
+            {/* Contact Us : */}
+            <a href="tel:9851214257" className="text-green-800 hover:underline"> <Phone className="inline-block  h-4 w-4 text-green-800" /> 9851214257</a>
+          </div>
+          <button className="md:hidden p-2 text-xl" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? "✕" : "☰"}
           </button>
         </div>
       </div>
 
-    
+      {/* NAVIGATION BAR */}
       <nav className="bg-green-50 md:bg-green-700 relative">
         <div className="max-w-7xl mx-auto px-4">
 
-          {/* ===== Desktop Menu ===== */}
-          <ul className="hidden md:flex text-[17px] items-center gap-4 py-3 text-white font-semibold">
-
-            <li className="px-3 py-1 hover:bg-green-800 rounded">
-              <Link to="/" onClick={handleMenuClick}>Home</Link>
-            </li>
-
-            <li className="px-3 py-1 hover:bg-green-800 rounded">
-              <Link to="/products" onClick={handleMenuClick}>Products</Link>
-            </li>
-
-            {/* ABOUT US */}
-            <li
-              className="px-3 py-1 hover:bg-green-800 rounded relative"
-              onMouseEnter={() => handleSubnavEnter("about")}
-              onMouseLeave={handleSubnavLeave}
-            >
-              <button
-                className="flex items-center gap-2"
-                onClick={() =>
-                  setSubnav((prev) => (prev === "about" ? "" : "about"))
-                }
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex text-[17px] items-center gap-4  text-white font-semibold">
+            {NAV_LINKS.map((item) => (
+              <li
+                key={item.title}
+                className="px-3 py-4 hover:bg-green-800/60  relative cursor-pointer tracking-wide font-medium"
+                onMouseEnter={() => item.children && handleSubnavEnter(item.id)}
+                onMouseLeave={item.children ? handleSubnavLeave : undefined}
               >
-                About Us ▾
-              </button>
-            </li>
-
-            <li className="px-3 py-1 hover:bg-green-800 rounded">
-              <Link to="/blog" onClick={handleMenuClick}>Blogs</Link>
-            </li>
-
-            <li className="px-3 py-1 hover:bg-green-800 rounded">
-              <Link to="/contact" onClick={handleMenuClick}>Contact</Link>
-            </li>
-          </ul>
-
-          {/* ===== Mobile Menu ===== */}
-          {isMenuOpen && (
-            <ul className="md:hidden text-green-700 font-bold text-sm py-2">
-
-              <li className="px-4 py-3 border-t border-green-600">
-                <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-              </li>
-
-              <li className="px-4 py-3 border-t border-green-600">
-                <Link to="/products" onClick={() => setIsMenuOpen(false)}>
-                  Products
-                </Link>
-              </li>
-
-              {/* ABOUT US MOBILE */}
-              <li className="px-4 py-3 border-t border-green-600">
-                <button
-                  className="w-full flex items-center justify-between font-semibold"
-                  onClick={() =>
-                    setMobileOpen((prev) => ({
-                      ...prev,
-                      about: !prev.about,
-                    }))
-                  }
-                >
-                  About Us ▾
-                </button>
-
-                {mobileOpen.about && (
-                  <ul className="mt-3 pl-4 space-y-2 text-green-700">
-                    {[
-                      ["Who We Are", "/about"],
-                      ["MD Message", "/about/md"],
-                      ["Board of Directors", "/board-of-directors"],
-                      ["Patron & Adviser", "/patron_adviser"],
-                      ["Marketing", "/departments/marketing"],
-                      ["Production", "/departments/production"],
-                      ["Finance", "/departments/finance"],
-                    ].map(([label, link]) => (
-                      <li key={label}>
-                        <Link
-                          to={link}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="block py-1"
-                        >
-                          {label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                {item.children ? (
+                  <button className="flex items-center gap-1">{item.title} <ChevronDown size={14} /></button>
+                ) : (
+                  <Link to={item.path}>{item.title}</Link>
                 )}
               </li>
+            ))}
+          </ul>
 
-              <li className="px-4 py-3 border-t border-green-600">
-                <Link to="/blog" onClick={() => setIsMenuOpen(false)}>
-                  Blogs
-                </Link>
-              </li>
-
-              <li className="px-4 py-3 border-t border-green-600">
-                <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-                  Contact
-                </Link>
-              </li>
-
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <ul className="md:hidden text-green-700 font-bold text-sm py-2">
+              {NAV_LINKS.map((item) => (
+                <li key={item.title} className="px-4 py-3 border-t border-green-600">
+                  {item.children ? (
+                    <>
+                      <button
+                        className="w-full flex items-center justify-between"
+                        onClick={() => toggleMobileSubnav(item.id)}
+                      >
+                        {item.title} <span>{mobileOpen[item.id] ? "▴" : "▾"}</span>
+                      </button>
+                      {mobileOpen[item.id] && (
+                        <ul className="mt-3 pl-4 space-y-2 font-medium">
+                          {item.children.flatMap(group => group.links).map((sub) => (
+                            <li key={sub.label}>
+                              <Link to={sub.path} onClick={() => setIsMenuOpen(false)} className="block py-1">
+                                {sub.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
+                    <Link to={item.path} onClick={() => setIsMenuOpen(false)}>{item.title}</Link>
+                  )}
+                </li>
+              ))}
             </ul>
           )}
         </div>
       </nav>
 
-      {/* ================= ABOUT US SUBNAV ================= */}
+      {/* Desktop Mega Menu Dropdown */}
       {subnav === "about" && (
         <div
           className="hidden md:block absolute left-0 top-full w-full bg-green-50/95 backdrop-blur-md border-t border-green-200 shadow-xl z-40"
           onMouseEnter={() => clearTimeout(closeTimeout.current)}
           onMouseLeave={handleSubnavLeave}
         >
-          <div className="max-w-7xl mx-auto px-2 py-2 grid grid-cols-3  gap-2">
+          <div className="max-w-7xl mx-auto px-4 py-6 grid grid-cols-3 gap-8">
+            {NAV_LINKS.find(n => n.id === "about").children.map((section) => (
+              <div key={section.heading} className="border-r border-green-200 last:border-0 pr-4">
+                <h3 className="font-bold text-green-900 mb-4 uppercase tracking-wider text-sm">
+                  {section.heading}
+                </h3>
+                <ul className="space-y-1 text-gray-800 font-medium">
+                  {section.links.map((link) => (
+                    <li key={link.label}>
+                      <Link to={link.path} onClick={() => setSubnav("")} className="block px-3 py-2 rounded hover:bg-green-100 transition-colors">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
 
-            <div className="border-r border-green-200 pr-4">
-              <h3 className="font-bold text-green-900 mb-4 uppercase tracking-wider">
-                About Siddha
-              </h3>
-              <ul className="space-y-0 text-gray-800 font-medium">
-                {[
-                  ["Who We Are", "/about"],
-                  ["MD Message", "/about/md"],
-                  ["Board of Directors", "/board-of-directors"],
-                  ["Patron & Adviser", "/patron_adviser"],
-                ].map(([label, link]) => (
-                  <li key={label}>
-                    <Link
-                      to={link}
-                      onClick={() => setSubnav("")}
-                      className="block px-3 py-2 rounded hover:bg-green-100"
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="border-r border-green-200 pr-8">
-              <h3 className="font-bold text-green-900 mb-4 uppercase tracking-wider">
-                Departments
-              </h3>
-              <ul className="space-y-2 text-gray-800 font-medium">
-                {[
-                  ["Marketing", "/departments/marketing"],
-                  ["Production", "/departments/production"],
-                  ["Finance", "/departments/finance"],
-                ].map(([label, link]) => (
-                  <li key={label}>
-                    <Link
-                      to={link}
-                      onClick={() => setSubnav("")}
-                      className="block px-3 py-2 rounded hover:bg-green-100"
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+            {/* Special CTA Card */}
             <div className="p-6 rounded-xl border border-green-200 bg-white/80">
-              <h3 className="text-green-900 font-bold mb-3">
-                Herbal Excellence
-              </h3>
-              <p className="text-sm text-gray-700 mb-4">
-                Dedicated to wellness through authentic Ayurvedic solutions.
-              </p>
-              <Link
-                to="/contact"
-                onClick={() => setSubnav("")}
-                className="inline-block bg-green-700 text-white px-5 py-2 rounded hover:bg-green-800 font-semibold"
-              >
+              <h3 className="text-green-900 font-bold mb-3">Herbal Excellence</h3>
+              <p className="text-sm text-gray-700 mb-4">Dedicated to wellness through authentic Ayurvedic solutions.</p>
+              <Link to="/contact" onClick={() => setSubnav("")} className="inline-block bg-green-700 text-white px-5 py-2 rounded hover:bg-green-800 font-semibold">
                 Get In Touch →
               </Link>
             </div>
-
           </div>
         </div>
       )}
-
     </header>
   );
 }

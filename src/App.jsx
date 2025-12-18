@@ -52,8 +52,8 @@ function AppInner() {
 
         {/* Department routes */}
          <Route path="/departments/marketing" element={<Marketing />} />
-<Route path="/departments/production" element={<Production />} />
-<Route path="/departments/finance" element={<Finance />} />
+        <Route path="/departments/production" element={<Production />} />
+        <Route path="/departments/finance" element={<Finance />} />
 
 
         <Route path="/blog" element={<BlogPage />} />
