@@ -15,6 +15,10 @@ const getContentData = (product) => [
           product.details["How It Works"]
             .split(". ")
             .map((point, idx) => point.trim() && <li key={idx}>{point}.</li>)
+        ) : Array.isArray(product.details?.["How It Works"]) ? (
+          product.details["How It Works"].map((point, idx) => (
+            <li key={idx}>{point}</li>
+          ))
         ) : (
           <li>{product.details?.["How It Works"]}</li>
         )}
