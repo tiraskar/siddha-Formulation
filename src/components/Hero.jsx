@@ -53,11 +53,11 @@ export default function Hero() {
 
     {/* Right Image Section */}
     <div className="relative flex items-center justify-center">
-      <div className="absolute w-80 h-80 md:w-96 md:h-96 bg-green-200 rounded-full blur-3xl opacity-40 -z-10"></div>
+      <div className="absolute w-90 h-90 md:w-100 md:h-100 bg-green-200 rounded-full blur-3xl opacity-40 -z-10"></div>
       <img
         src="/assets/img/Herbal-Medicine.jpg"
         alt="Herbal Product"
-        className="w-80 md:w-full h-auto drop-shadow-2xl rounded-3xl
+        className="w-100 md:w-full h-auto drop-shadow-2xl rounded-3xl
           hover:scale-105 transition-transform duration-300"
       />
     </div>
@@ -68,7 +68,7 @@ export default function Hero() {
 {/* Bottom Ayurvedic Info Section */}
 <section className="relative w-full mt-0  border-2  ">
   <div
-    className="relative w-full h-[550px] md:h-[420px] bg-cover bg-center flex items-center justify-center px-6"
+    className="relative w-full h-[280px] md:h-[420px] bg-cover bg-center flex items-center justify-center px-6"
     style={{
       backgroundImage: "url('/assets/img/Herbal-Medicine.jpg')",
     }}
@@ -77,15 +77,18 @@ export default function Hero() {
     <div className="absolute inset-0 bg-black/60"></div>
 
     {/* Content */}
-    <div className="relative z-10 max-w-5xl mx-auto text-center text-white px-4">
-      <h2 className="text-3xl md:text-4xl font-extrabold mb-6 leading-tight">
+    <div className="relative z-10  max-w-5xl mx-auto text-center text-white px-4">
+      <h2 className="text-2xl md:text-4xl font-extrabold mb-6 leading-tight">
 Ancient Wisdom, Modern Healing
       </h2>
 
-      <p className="text-base md:text-lg leading-relaxed text-gray-100">
-Blending 3000 years of Ayurvedic tradition with cutting-edge
-<br />
- research to bring you the purest herbal formulations.
+      <p className="text-base md:text-lg line-clamp-5 md:line-clamp-none leading-relaxed text-gray-100">
+Blending 3000 years of Ayurvedic tradition with cutting-edge research.
+
+Combining ancient <br /> wisdom with 
+ modern science for superior quality and efficacy.
+Bringing you the <br /> purest herbal formulations for holistic and balanced wellness.
+ 
         
       </p>
     </div>

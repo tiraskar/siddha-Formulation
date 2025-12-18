@@ -33,7 +33,7 @@ const ProductSection = ({ title, products, onProductClick }) => {
             className="group w-full sm:w-[48%] md:w-[23%] cursor-pointer"
             onClick={() => onProductClick(product)}
           >
-            <div className="relative bg-gray-100 hover:bg-green-50 border border-gray-100 hover:border-green-300 rounded-lg p-4 md:p-5 flex flex-col items-center text-center min-h-[340px]">
+            <div className="relative bg-gray-200 md:bg-white shadow-md hover:bg-green-50 border border-gray-100 hover:border-green-300 rounded-lg  p-4 md:p-5 flex flex-col items-center text-center min-h-[100px] md:min-h-[340px]">
               <div className="w-full h-40 md:h-48 flex items-center justify-center mb-4 rounded-md overflow-hidden">
                 <img
                   src={product.image}
@@ -44,10 +44,10 @@ const ProductSection = ({ title, products, onProductClick }) => {
 
               <div className="flex flex-col flex-grow justify-between w-full">
                 <div>
-                  <h3 className="text-base md:text-lg font-bold text-gray-900 line-clamp-2 mb-1 transition group-hover:text-green-700">
+                  <h3 className="text-lg md:text-lg font-bold text-gray-900 line-clamp-2 mb-1 transition group-hover:text-green-700">
                     {product.title}
                   </h3>
-                  <p className="text-xs md:text-[15px] text-black line-clamp-2 h-12  mb-2 leading-relaxed group-hover:text-gray-800">
+                  <p className="text-1xl md:text-[15px] text-black line-clamp-2 h-12  mb-2 leading-relaxed group-hover:text-gray-800">
                     {getProductDescription(product)}
                   </p>
                 </div>

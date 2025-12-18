@@ -72,7 +72,7 @@ export default function Production() {
                   Message from the Director – Production
                 </span>
 
-                <p className="text-gray-700 leading-relaxed mb-6">
+                <p className="text-gray-700 text-justify leading-relaxed mb-6">
                   Ayurveda is a time-tested system of natural medicine with a
                   history spanning more than 5,000 years. It follows a holistic
                   philosophy that focuses on harmony between the mind, body, and

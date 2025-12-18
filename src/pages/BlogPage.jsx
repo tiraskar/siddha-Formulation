@@ -166,7 +166,7 @@ const BlogPostCard = ({
 
       {/* Text */}
       <div className="font-serif flex-1 lg:pr-6 order-2 lg:order-1">
-        <h3 className="text-2xl pt-8 font-semibold text-green-700 mb-2 transition duration-300 group-hover:text-green-900">
+        <h3 className="text-2xl pt-2 md:pt-8 font-semibold text-green-700 mb-2 transition duration-300 group-hover:text-green-900">
           {title}
         </h3>
         <p className="text-gray-700  mb-0 text-lg ">{description}</p>
@@ -211,7 +211,7 @@ const BlogPage = () => {
         </div>
 
         {/* Blog List */}
-        <div className="space-y-6">
+        <div className="space-y-6 ">
           {posts.map((post, index) => (
             <BlogPostCard key={index} {...post} />
           ))}

@@ -25,20 +25,20 @@ const LatestProducts = () => {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3  gap-4 md:gap-8">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
         {latestProducts.map((product) => (
           <div
             key={product.id}
             onClick={() => setSelectedProduct(product)}
-            className="group cursor-pointer  "
+            className="group cursor-pointer"
           >
             <div
               className="
-                relative 
+                relative
                 hover:bg-green-50
                 border
                 border-gray-100
-              bg-gray-200
+                bg-gray-200
                 hover:border-green-300
                 rounded-lg
                 p-4 md:p-5
@@ -52,7 +52,7 @@ const LatestProducts = () => {
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full min-w-full object-contain"
                 />
               </div>
 
@@ -63,7 +63,7 @@ const LatestProducts = () => {
                     {product.title}
                   </h2>
 
-                  <p className="text-xs  md:text-[15px] text-gray-700 line-clamp-2 h-12 mb-2 leading-relaxed group-hover:text-gray-800">
+                  <p className="text-xs md:text-[15px] text-gray-700 line-clamp-2 h-12 mb-3 leading-relaxed group-hover:text-gray-800">
                     {getProductDescription(product)}
                   </p>
                 </div>

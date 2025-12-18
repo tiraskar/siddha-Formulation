@@ -71,7 +71,7 @@ export default function Finance() {
                   Message from the Head – Finance
                 </span>
 
-                <p className="text-gray-700 leading-relaxed mb-6">
+                <p className="text-gray-700 text-justify leading-relaxed mb-6">
                   The pharmaceutical industry is a highly regulated sector with
                   substantial capital investment requirements and long
                   development timelines. Effective financial management is

@@ -80,7 +80,7 @@ export default function Marketing() {
                   Message from the Director – Marketing
                 </span>
 
-                <p className="text-gray-700 leading-relaxed mb-6">
+                <p className="text-gray-700 text-justify leading-relaxed mb-6">
                   At Siddha Formulation, we create value for life by offering
                   trusted medical solutions to people. We manage the entire
                   lifecycle of pharmaceutical products, from manufacturing and
