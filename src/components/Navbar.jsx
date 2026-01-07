@@ -67,7 +67,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <div className="hidden md:block text-gray-700 font-medium">
             {/* Contact Us : */}
-            <a href="tel:9851214257" className="text-green-800 hover:underline"> <Phone className="inline-block  h-4 w-4 text-green-800" /> 9851214257</a>
+            <a href="tel:9857030665" className="text-green-800 hover:underline"> <Phone className="inline-block  h-4 w-4 text-green-800" /> 9857030665</a>
           </div>
           <button className="md:hidden p-2 text-xl" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? "✕" : "☰"}

@@ -148,14 +148,15 @@ const Contact = () => {
           >
                     9857030665
           </a>
-                  {' '} /{/* <br /> */}
+                  
                   {/* Admin:{" "} */}
           <a
             href="tel:+9779851214257"
             className="text-green-700 hover:text-green-900  ml-1"
           >
-            9851214257
-          </a>
+          
+          
+                    </a>
         </span>
       </p>
     </div>
