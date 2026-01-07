@@ -80,7 +80,7 @@ const BlogPage = () => {
         </div>
 
         {/* Blog List */}
-        <div className="grid grid-cols-2 gap-4  h-fit">
+        <div className="grid md:grid-cols-2 gap-4  h-fit">
           {posts.map((post, index) => (
             <BlogPostCard key={index} {...post} />
           ))}
